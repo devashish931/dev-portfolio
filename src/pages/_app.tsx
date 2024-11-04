@@ -2,7 +2,6 @@ import { type Session } from "next-auth";
 import { SessionProvider } from "next-auth/react";
 import { type AppType } from "next/app";
 import "@/styles/globals.css";
-import { ThemeProvider } from "next-themes";
 import { Inter } from "next/font/google";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -19,7 +18,6 @@ const MyApp: AppType<{ session: Session | null }> = ({
 }) => {
   return (
     <SessionProvider session={session}>
-      <ThemeProvider attribute="class" defaultTheme="dark">
         <Cursor />
         <main className={inter.className}>
           <Head>
@@ -30,7 +28,6 @@ const MyApp: AppType<{ session: Session | null }> = ({
           <Component {...pageProps} />
         </main>
         <ToastContainer />
-      </ThemeProvider>
     </SessionProvider>
   );
 };
