@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useState } from "react";
-import Link from "next/link";
 import { AiOutlineMenu, AiOutlineClose, AiOutlineMail } from "react-icons/ai";
 import { SUBJECT_DATA } from "@/config/constants";
 import SocialMediaButtons from "./socialMediaButtons";
@@ -47,7 +46,7 @@ const Navbar = () => {
                  
                   href={href}
                   className={cn("flex h-20 items-center px-3 lg:px-5", {
-                    active: sectionId
+                    "text-yellow-400": sectionId
                       ? sectionId === href?.replace("/", "")
                       : !idx,
                   })}
