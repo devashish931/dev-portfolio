@@ -14,12 +14,13 @@ const About = (props: SectionProps) => {
       <h2 className="py-4 text-2xl font-bold">Who I Am</h2>
       <div className="flex flex-col gap-4 py-2 text-lg">
         <p>
-          As a dedicated Frontend Developer, I am deeply passionate and
+          As a Senior Frontend Developer, I am deeply passionate and
           enthusiastic about crafting exceptional web applications. With a solid
-          background in web development spanning over 4+ years, I have
+          background in web development spanning over 5+ years, I have
           successfully worked on a range of real-world projects, showcasing my
           proficiency in HTML, CSS, JavaScript, ReactJS, NextJS, TypeScript,
-          Redux, Web3.js, React Context API.
+          Redux, Web3.js, React Context API and many more technologies.
+          My expertise extends to server-side rendering (SSR), frontend performance optimization, SEO, reusable component architecture, and CMS customization. I have delivered production applications across Web3, gaming, and EdTech domains while collaborating with cross-functional teams in Agile environments.
         </p>
         <p>
           My educational foundation includes a Bachelors of Computer Applications,
