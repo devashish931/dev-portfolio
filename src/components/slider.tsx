@@ -125,7 +125,7 @@ const Slider: React.FC<SliderProps> = ({
           <div
             key={index}
             className={cn(
-              "duration-250 h-full w-screen overflow-hidden bg-charcoal transition-all ease-anticipate md:blur-lg",
+              "duration-250 h-full w-screen overflow-hidden bg-gray-800 transition-all ease-anticipate md:blur-lg",
               { "!blur-[0px]": visibleSlide === index }
             )}
           >

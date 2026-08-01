@@ -38,17 +38,17 @@ const Home = (props: SectionProps) => {
           />
         </h2>
         <p className="text-lg">
-          I am a proficient Senior Frontend Developer possessing substantial
-          expertise in ReactJS, NextJS, along with a strong command of Vanilla
-          JavaScript, TypeScript, HTML, and CSS. My dedication lies in
-          consistently delivering top-notch code while remaining well-informed
-          about the most recent advancements in front-end development practices.
+          Senior Frontend Developer with 5+ years of experience building scalable web applications using React.js,
+          Next.js, TypeScript, Vue.js, and Nuxt.js. Experienced in server-side rendering (SSR), frontend
+          performance optimisation, SEO, reusable component architecture, and CMS customisation. Delivered
+          production applications across Web3, gaming, and EdTech domains while collaborating with
+          cross-functional teams in Agile environments.
         </p>
         <SocialMediaButtons className="m-auto mt-16" />
       </div>
       <div className="order-1 my-8 lg:order-2">
         <div className="bevel-clip mx-auto flex w-fit items-center justify-center bg-primary bg-opacity-20 p-3">
-          <div className="bevel-clip -translate-y-2 translate-x-2 overflow-hidden bg-charcoal bg-opacity-80">
+          <div className="bevel-clip -translate-y-2 translate-x-2 overflow-hidden bg-gray-800 bg-opacity-80">
             <Image
               src={SUBJECT_DATA.image}
               alt="profile"
