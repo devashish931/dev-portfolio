@@ -18,7 +18,7 @@ const SectionLayout = ({
   return (
     <div
       className={cn(
-        "mx-auto w-screen max-w-[1280px] overflow-y-auto overflow-x-hidden px-4 py-10 sm:px-10 sm:py-16 md:px-[100PX] md:py-20",
+        "mx-auto w-screen max-w-[1280px] hide-scrollbar overflow-y-auto overflow-x-hidden px-4 py-10 sm:px-10 sm:py-16 md:px-[100PX] md:py-20",
         { "md:h-screen": screenFit },
         className
       )}
