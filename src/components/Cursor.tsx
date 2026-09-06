@@ -60,6 +60,9 @@ const Cursor: React.FC = () => {
         target?.classList?.contains(".cursor-arrow")
       ) {
         setCursorVariant(prevCursorVariant || CursorVariants.default);
+      }else if(!relatedTarget?.closest(".cursor-pointer")){
+        setCursorVariant( CursorVariants.default);
+
       }
     };
 

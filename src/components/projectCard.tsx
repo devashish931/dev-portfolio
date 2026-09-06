@@ -4,7 +4,7 @@ import cn from "@/lib/utils";
 
 const ProjectCard = ({ item }: any) => {
   return (
-    <div className="group h-full w-full cursor-pointer border-2 border-primary p-2 sm:border-transparent sm:p-0 sm:hover:border-primary">
+    <div className="group h-full w-full cursor-pointer border-2 border-primary/30 p-2 sm:p-0 hover:border-primary">
       <div
         className={cn(
           "relative aspect-[1.98] w-full overflow-hidden transition-all duration-500",
