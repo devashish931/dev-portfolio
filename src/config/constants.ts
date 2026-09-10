@@ -193,7 +193,7 @@ const SKILLS =[
   },
   {
     name: "GitHub Copilot",
-    value: "/images/techStack/GitHubCopilot.svg",
+    value: "/images/techStack/GithubCopilot.svg",
     url: "https://github.com/features/copilot",
   },
 ];
