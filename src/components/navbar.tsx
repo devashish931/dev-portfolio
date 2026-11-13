@@ -83,6 +83,7 @@ const Navbar = () => {
                 onClick={handleNav}
                 icon
                 buttonClassName="!bg-black !p-2 opacity-80"
+                aria-label="Close Menu"
               >
                 <AiOutlineClose size={14} />
               </Button>

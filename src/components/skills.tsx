@@ -23,7 +23,7 @@ const Skills = (props: SectionProps) => {
                   item.name === "NextJS" && "rounded-full bg-white"
                 }`}
                 >
-                <Image src={item.value} alt={item.name} fill className="z-10" />
+                <Image src={item.value} alt={`${item.name} Logo`} fill className="z-10" />
               </div>
             </div>
         </Link>

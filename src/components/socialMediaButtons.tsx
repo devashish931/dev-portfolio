@@ -34,6 +34,7 @@ const SocialMediaButtons = ({
         rel="noreferrer"
         icon
         buttonClassName={buttonClassName}
+        aria-label="Open my github account"
       >
         <FaGithub />
       </Button>
@@ -44,6 +45,7 @@ const SocialMediaButtons = ({
         rel="noreferrer"
         icon
         buttonClassName={buttonClassName}
+        aria-label="Open my linkedin profile"
       >
         <FaLinkedinIn />
       </Button>
@@ -51,11 +53,15 @@ const SocialMediaButtons = ({
         icon
         onClick={() => (window.location.href = `mailto:${email}`)}
         buttonClassName={buttonClassName}
+        aria-label="Send me an e-mail"
       >
         <AiOutlineMail />
       </Button>
       {showBuyMeCoffeeButton && buyMeCoffee ? (
-        <Button as="a" href={buyMeCoffee} target="_blank">
+        <Button as="a" 
+          href={buyMeCoffee} 
+          target="_blank"
+        >
           <Image
             src="/images/icons/buyMeCoffee.png"
             alt="Buy Me A Coffee"
