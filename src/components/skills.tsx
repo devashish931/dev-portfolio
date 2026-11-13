@@ -10,7 +10,7 @@ const Skills = (props: SectionProps) => {
     <SectionLayout title="Skills" className="text-justify" {...props}>
       <div className="flex flex-wrap items-center justify-around gap-8 py-2 text-lg">
         {SUBJECT_DATA.Skills.map((item, idx) => (
-          <Link href={item.url} target="_blank" className="cursor-pointer">
+          <Link key={item.name} href={item.url} target="_blank" className="cursor-pointer">
             <div
               className="flex min-h-[150px] w-[150px] flex-col items-center justify-center gap-8 border border-primary p-4 text-center shadow-card shadow-primary/30 md:min-h-[200px] md:w-[200px]"
               key={idx}

@@ -1,20 +1,17 @@
-import About from "@/components/about";
-import Contact from "@/components/contact";
-import Home from "@/components/home";
-import Projects from "@/components/projects";
-import Skills from "@/components/skills";
 import Slider from "@/components/slider";
 import { SECTIONS } from "@/config/appConfig";
 import { SliderBtnActions } from "@/lib/types";
+import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
 import { useEffect, useMemo, useState } from "react";
+import SectionLoading from "./sectionLoading";
 
 const SECTIONS_COMPONENTS = [
-  { path: SECTIONS.HOME, component: Home },
-  { path: SECTIONS.ABOUT, component: About },
-  { path: SECTIONS.PROJECTS, component: Projects },
-  { path: SECTIONS.SKILLS, component: Skills },
-  { path: SECTIONS.CONTACT, component: Contact },
+  { path: SECTIONS.HOME, component: dynamic(()=>import("@/components/home"), { loading: ()=><SectionLoading screenName="Profile" />}) },
+  { path: SECTIONS.ABOUT, component: dynamic(()=>import("@/components/about"), { loading: ()=><SectionLoading screenName="Details" />}) },
+  { path: SECTIONS.PROJECTS, component: dynamic(()=>import("@/components/projects"), { loading: ()=><SectionLoading screenName="Projects" />}) },
+  { path: SECTIONS.SKILLS, component: dynamic(()=>import("@/components/skills"), { loading: ()=><SectionLoading screenName="Skills" />}) },
+  { path: SECTIONS.CONTACT, component: dynamic(()=>import("@/components/contact"), { loading: ()=><SectionLoading screenName="Contact Details" />}) },
 ];
 
 export default function MainPage() {
