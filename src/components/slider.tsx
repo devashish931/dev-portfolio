@@ -65,7 +65,6 @@ const Slider: React.FC<SliderProps> = ({
     getInitialIndex(activeSlideIndex, slideInitialIndex)
   );
   const visibleSlideTimerRef = useRef<NodeJS.Timeout | null>(null);
-  const [visitedSlides, setVisitedSlides] = useState(new Set([currentSlide]));
 
   const handleNext = () => {
     if (isControlled) {
@@ -114,13 +113,6 @@ const Slider: React.FC<SliderProps> = ({
 
   useEffect(() => clearVisibleTimerRef, []);
 
-  useEffect(()=>{
-    setVisitedSlides(prev=>{
-      if(prev.has(currentSlide)) return prev;
-      return new Set(prev).add(currentSlide);
-    })
-  },[currentSlide])
-
   return (
     <div className="w-screen overflow-hidden pt-20 md:relative md:h-screen">
       <div
@@ -137,7 +129,7 @@ const Slider: React.FC<SliderProps> = ({
               { "!blur-[0px]": visibleSlide === index }
             )}
           >
-            {visitedSlides.has(index) && Slide}
+            {Slide}
           </div>
         ))}
       </div>
