@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { AiOutlineMenu, AiOutlineClose, AiOutlineMail } from "react-icons/ai";
+import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
 import { SUBJECT_DATA } from "@/config/constants";
 import SocialMediaButtons from "./socialMediaButtons";
 import Button from "./button";
@@ -8,7 +8,11 @@ import { LINKS } from "@/config/appConfig";
 import { useRouter } from "next/router";
 import cn from "@/lib/utils";
 
-const Navbar = () => {
+interface NavbarProps {
+  onChange: (isOpen: boolean)=>void
+}
+
+const Navbar = ({ onChange }: NavbarProps) => {
   const [nav, setNav] = useState(false);
   const router = useRouter();
   const { sectionId } = router.query;
@@ -16,22 +20,39 @@ const Navbar = () => {
   const ref = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
+    if(!nav) return;
     const handleOutSideClick = (event: MouseEvent) => {
       if (!ref.current?.contains(event.target as Node)) {
         setNav(false);
       }
     };
 
+    const handleEscClick = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setNav(false);
+      }
+    };
+
     window.addEventListener("mousedown", handleOutSideClick);
+    window.addEventListener("keydown", handleEscClick);
 
     return () => {
       window.removeEventListener("mousedown", handleOutSideClick);
+      window.removeEventListener("keydown", handleEscClick);
     };
-  }, [ref]);
+  }, [ref, nav]);
 
   const handleNav = () => {
     setNav(!nav);
   };
+
+  useEffect(()=>{
+    onChange(nav);
+    if(ref.current){
+      ref.current.inert = !nav;
+    }
+  },[nav])
+
   return (
     <nav className="fixed z-[60] h-20 w-full bg-primary/20 shadow-xl backdrop-blur-lg">
       <div className="flex h-full w-full items-center justify-between px-4 md:px-8 2xl:px-16">
@@ -57,9 +78,9 @@ const Navbar = () => {
               </li>
             ))}
           </ul>
-          <div onClick={handleNav} className="cursor-pointer md:hidden">
+          <Button icon onClick={handleNav} disableHoverStyles buttonClassName="bg-transparent p-1.5 border-none" className="bg-transparent cursor-pointer md:hidden" aria-label="Open Navigation">
             <AiOutlineMenu size={25} />
-          </div>
+          </Button>
         </div>
       </div>
       <div
@@ -70,11 +91,16 @@ const Navbar = () => {
         }
       >
         <div
-          className={
+          className={cn(
+            "md:hidden",
             nav
-              ? "fixed left-0 top-0 h-screen w-[75%] bg-gray-900 p-5 duration-500 ease-in sm:w-[60%] sm:p-10 md:w-[45%]"
-              : "fixed left-[-100%] top-0 p-10 duration-500 ease-in"
+            ? "fixed left-0 top-0 h-screen w-[75%] bg-gray-900 p-5 duration-500 ease-in sm:w-[60%] sm:p-10 md:w-[45%]"
+            : "fixed left-[-100%] top-0 p-10 duration-500 ease-in"
+          )
           }
+          role="dialog"
+          aria-modal={nav}
+          aria-label="Navigation Menu"
           ref={ref}
         >
           <div>
@@ -90,7 +116,7 @@ const Navbar = () => {
             </div>
           </div>
           <div className="flex flex-col py-4">
-            <ul className="uppercase">
+            <ul className="uppercase" aria-label="Main Navigation">
               {LINKS.map(({ name, href, options }, idx) => (
                 <li  key={idx}>
                   <NavLink

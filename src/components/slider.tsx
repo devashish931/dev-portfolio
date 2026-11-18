@@ -10,6 +10,7 @@ import cn from "@/lib/utils";
 import { useRouter } from "next/router";
 import isFinite from "lodash/isFinite";
 import { SliderBtnActions } from "@/lib/types";
+import { useMediaQuery } from "@/hooks/useMediaQuery";
 
 export const SLIDER_BTN_ACTIONS = { NEXT: "next", PREV: "prev" } as const;
 
@@ -43,6 +44,8 @@ const Slider: React.FC<SliderProps> = ({
 }) => {
   const router = useRouter();
   const { sectionId } = router.query;
+  const isDesktop = useMediaQuery("md")
+  const sectionRefs = useRef<Record<string, HTMLDivElement | null>>({});
 
   const isControlled = typeof activeSlideIndex === "number";
 
@@ -113,21 +116,45 @@ const Slider: React.FC<SliderProps> = ({
 
   useEffect(() => clearVisibleTimerRef, []);
 
+  useEffect(()=>{
+    
+    if(isDesktop) return;
+    const targetSectionRef = sectionRefs.current?.[sectionId as string]
+    if(targetSectionRef){
+      targetSectionRef?.scrollIntoView({
+        behavior: "smooth",
+        block: "nearest"
+      })
+    }
+  },[sectionId])
+
+  const handleFocus = (slideIndex: number) => (event: React.FocusEvent<HTMLElement>) => {
+    if(currentSlide === slideIndex) return;
+    if (isControlled) {
+      onSlideChange?.(slideIndex > currentSlide ? "next" : "prev");
+    } else {
+      setCurrentSlide(slideIndex);
+    }
+  };
+
   return (
-    <div className="w-screen overflow-hidden pt-20 md:relative md:h-screen">
+    <div className="w-screen overflow-hidden overflow-x-clip pt-20 md:relative md:h-screen">
       <div
         className="top-0 h-full transition-all duration-500 ease-anticipate md:absolute md:flex"
         style={{
           left: `calc(-${currentSlide} * 100vw)`,
         }}
       >
-        {slides.map(({ Slide }, index) => (
+        {slides.map(({ Slide, id }, index) => (
           <div
+            onFocus={handleFocus(index)}
             key={index}
+            id={id}
             className={cn(
-              "duration-250 h-full w-screen overflow-hidden bg-gray-800 transition-all ease-anticipate md:blur-lg",
+              "duration-250 h-full shrink-0 w-screen overflow-hidden bg-gray-800 transition-transform ease-anticipate md:blur-lg scroll-mt-20",
               { "!blur-[0px]": visibleSlide === index }
             )}
+            ref={(ref)=>{sectionRefs.current[id] = ref}}
           >
             {Slide}
           </div>

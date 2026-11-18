@@ -41,7 +41,7 @@ const Contact = (props: SectionProps) => {
             Phone:
             <Link
               className="cursor-pointer font-medium underline"
-              href={`tel:${SUBJECT_DATA.email_id}`}
+              href={`tel:${SUBJECT_DATA.mobile_number}`}
             >
               +91 {SUBJECT_DATA.mobile_number}
             </Link>

@@ -36,7 +36,7 @@ const About = (props: SectionProps) => {
           I am excited about the opportunity to contribute my expertise and work
           collaboratively, always striving to exceed expectations and create
           innovative solutions. Let’s embark on this journey together and make
-          remarkable strides in the world of web development! 🚀
+          remarkable strides in the world of web development!
         </p>
       </div>
       <Button
