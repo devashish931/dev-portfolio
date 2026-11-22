@@ -26,4 +26,3 @@ export function useMediaQuery(screen: Screen): boolean {
 
   return matches;
 }
-

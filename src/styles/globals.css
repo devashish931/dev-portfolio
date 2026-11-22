@@ -4,13 +4,14 @@
 
 @layer base {
   body {
-    @apply bg-gray-800;
+    @apply bg-background text-primary-text;
   }
 }
 
-a,
-button {
-  cursor: none !important;
+@layer components {
+  .container {
+    @apply !max-w-[1280px];
+  }
 }
 
 .bevel-clip {
@@ -26,12 +27,11 @@ button {
   );
 }
 
-.hide-scrollbar {
-    &::-webkit-scrollbar {
-        display: none;
-    }
-
-    -ms-overflow-style: none;
-
-    scrollbar-width: none;
+@keyframes color-switch {
+  from {
+    @apply text-brand/70;
+  }
+  to {
+    @apply text-accent/70;
+  }
 }

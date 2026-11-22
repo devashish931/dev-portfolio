@@ -33,8 +33,8 @@ const getInitialIndex = (activeIndex?: number, initialIndex?: number) =>
   activeIndex && isFinite(activeIndex)
     ? activeIndex
     : initialIndex && isFinite(initialIndex)
-    ? initialIndex
-    : 0;
+      ? initialIndex
+      : 0;
 
 const Slider: React.FC<SliderProps> = ({
   children,
@@ -44,7 +44,7 @@ const Slider: React.FC<SliderProps> = ({
 }) => {
   const router = useRouter();
   const { sectionId } = router.query;
-  const isDesktop = useMediaQuery("md")
+  const isDesktop = useMediaQuery("md");
   const sectionRefs = useRef<Record<string, HTMLDivElement | null>>({});
 
   const isControlled = typeof activeSlideIndex === "number";
@@ -62,10 +62,10 @@ const Slider: React.FC<SliderProps> = ({
   }, [children, sectionId]);
 
   const [currentSlide, setCurrentSlide] = useState<number>(() =>
-    getInitialIndex(activeSlideIndex, slideInitialIndex)
+    getInitialIndex(activeSlideIndex, slideInitialIndex),
   );
   const [visibleSlide, setVisibleSlide] = useState<number>(() =>
-    getInitialIndex(activeSlideIndex, slideInitialIndex)
+    getInitialIndex(activeSlideIndex, slideInitialIndex),
   );
   const visibleSlideTimerRef = useRef<NodeJS.Timeout | null>(null);
 
@@ -74,7 +74,7 @@ const Slider: React.FC<SliderProps> = ({
       onSlideChange?.("next");
     } else {
       setCurrentSlide((prevSlide) =>
-        prevSlide === slides.length - 1 ? 0 : prevSlide + 1
+        prevSlide === slides.length - 1 ? 0 : prevSlide + 1,
       );
     }
   };
@@ -84,7 +84,7 @@ const Slider: React.FC<SliderProps> = ({
       onSlideChange?.("prev");
     } else {
       setCurrentSlide((prevSlide) =>
-        prevSlide === 0 ? slides.length - 1 : prevSlide - 1
+        prevSlide === 0 ? slides.length - 1 : prevSlide - 1,
       );
     }
   };
@@ -100,7 +100,7 @@ const Slider: React.FC<SliderProps> = ({
     clearVisibleTimerRef();
     visibleSlideTimerRef.current = setTimeout(
       () => setVisibleSlide(currentSlide),
-      500
+      500,
     );
 
     if (!isControlled) {
@@ -116,59 +116,30 @@ const Slider: React.FC<SliderProps> = ({
 
   useEffect(() => clearVisibleTimerRef, []);
 
-  useEffect(()=>{
-    
-    if(isDesktop) return;
-    const targetSectionRef = sectionRefs.current?.[sectionId as string]
-    if(targetSectionRef){
+  useEffect(() => {
+    const targetSectionRef = sectionRefs.current?.[sectionId as string];
+    if (targetSectionRef) {
       targetSectionRef?.scrollIntoView({
         behavior: "smooth",
-        block: "nearest"
-      })
+        block: "nearest",
+      });
     }
-  },[sectionId])
-
-  const handleFocus = (slideIndex: number) => (event: React.FocusEvent<HTMLElement>) => {
-    if(currentSlide === slideIndex) return;
-    if (isControlled) {
-      onSlideChange?.(slideIndex > currentSlide ? "next" : "prev");
-    } else {
-      setCurrentSlide(slideIndex);
-    }
-  };
+  }, [sectionId]);
 
   return (
-    <div className="w-screen overflow-hidden overflow-x-clip pt-20 md:relative md:h-screen">
-      <div
-        className="top-0 h-full transition-all duration-500 ease-anticipate md:absolute md:flex"
-        style={{
-          left: `calc(-${currentSlide} * 100vw)`,
-        }}
-      >
-        {slides.map(({ Slide, id }, index) => (
-          <div
-            onFocus={handleFocus(index)}
-            key={index}
-            id={id}
-            className={cn(
-              "duration-250 h-full shrink-0 w-screen overflow-hidden bg-gray-800 transition-transform ease-anticipate md:blur-lg scroll-mt-20",
-              { "!blur-[0px]": visibleSlide === index }
-            )}
-            ref={(ref)=>{sectionRefs.current[id] = ref}}
-          >
-            {Slide}
-          </div>
-        ))}
-      </div>
-
-      <div
-        onClick={handlePrev}
-        className="cursor-arrow cursor-arrow-left absolute left-0 top-0 z-50 hidden h-full w-[calc(50vw_-(min(50vw,640px)_-_100px))] md:block"
-      ></div>
-      <div
-        onClick={handleNext}
-        className="cursor-arrow cursor-arrow-right absolute right-0 top-0 z-50 hidden h-full w-[calc(50vw_-(min(50vw,640px)_-_100px))] md:block"
-      ></div>
+    <div className="w-screen md:relative">
+      {slides.map(({ Slide, id }, index) => (
+        <div
+          key={index}
+          id={id}
+          className={cn("h-full w-screen scroll-mt-20 bg-background")}
+          ref={(ref) => {
+            sectionRefs.current[id] = ref;
+          }}
+        >
+          {Slide}
+        </div>
+      ))}
     </div>
   );
 };
