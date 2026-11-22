@@ -24,7 +24,7 @@ export default function AboutSection() {
           </p>
 
           <Button
-            as="a"
+            as="Link"
             variant="ghost"
             href={ROUTES.ABOUT}
             disableHoverStyles

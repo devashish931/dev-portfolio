@@ -107,7 +107,7 @@ const Sidebar = forwardRef<HTMLDivElement, SidebarProps>(
 
           <div className="px-6 pb-4">
             <Button
-              as="a"
+              as="Link"
               href={SUBJECT_DATA.resume}
               variant="solid-accent"
               className="w-full"

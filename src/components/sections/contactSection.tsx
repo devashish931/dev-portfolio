@@ -30,7 +30,7 @@ export default function ContactSection({
 
         <div className="flex w-full flex-col gap-6">
           <Button
-            as="a"
+            as="Link"
             href={ROUTES.CONTACT}
             variant="solid-accent"
             size="lg"
@@ -41,7 +41,7 @@ export default function ContactSection({
           </Button>
 
           <Button
-            as="a"
+            as="Link"
             href={`mailto:${SUBJECT_DATA.email_id}`}
             variant="bordered-primary"
             size="lg"

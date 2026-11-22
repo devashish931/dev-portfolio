@@ -4,7 +4,7 @@ import { SUBJECT_DATA } from "@/config/constants/common";
 import SocialMediaButtons from "../socialMediaButtons";
 import SectionLayout from "../sectionLayout";
 import { SectionProps } from "@/lib/types";
-import { SECTIONS } from "@/config/appConfig";
+import { ROUTES, SECTIONS } from "@/config/appConfig";
 import Button from "../button";
 import Tag from "../tag";
 import StatsSection from "./statsSection";
@@ -82,10 +82,20 @@ const HeroSection = (props: SectionProps) => {
           </p>
           <div className="flex flex-col gap-3 md:gap-5">
             <div className="flex gap-3">
-              <Button size="lg" variant="bordered-accent">
+              <Button
+                as="Link"
+                href={ROUTES.PROJECTS}
+                size="lg"
+                variant="bordered-accent"
+              >
                 View My Work
               </Button>
-              <Button size="lg" variant="bordered-ghost-primary">
+              <Button
+                as="Link"
+                href={ROUTES.CONTACT}
+                size="lg"
+                variant="bordered-ghost-primary"
+              >
                 Contact Me
               </Button>
             </div>
