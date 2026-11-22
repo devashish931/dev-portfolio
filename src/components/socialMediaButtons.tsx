@@ -1,8 +1,7 @@
 import React from "react";
-import { AiOutlineMail } from "react-icons/ai";
-import { FaGithub, FaLinkedinIn } from "react-icons/fa";
+import { FiGithub, FiLinkedin, FiMail } from "react-icons/fi";
 import Button from "./button";
-import { SUBJECT_DATA } from "@/config/constants";
+import { SUBJECT_DATA } from "@/config/constants/common";
 import cn from "@/lib/utils";
 import Image from "next/image";
 
@@ -23,8 +22,8 @@ const SocialMediaButtons = ({
   return (
     <div
       className={cn(
-        "flex max-w-full items-center justify-between gap-8",
-        className
+        "flex max-w-full items-center justify-start gap-2",
+        className,
       )}
     >
       <Button
@@ -36,7 +35,7 @@ const SocialMediaButtons = ({
         buttonClassName={buttonClassName}
         aria-label="Open my github account"
       >
-        <FaGithub />
+        <FiGithub />
       </Button>
       <Button
         as="a"
@@ -47,7 +46,7 @@ const SocialMediaButtons = ({
         buttonClassName={buttonClassName}
         aria-label="Open my linkedin profile"
       >
-        <FaLinkedinIn />
+        <FiLinkedin />
       </Button>
       <Button
         icon
@@ -55,13 +54,10 @@ const SocialMediaButtons = ({
         buttonClassName={buttonClassName}
         aria-label="Send me an e-mail"
       >
-        <AiOutlineMail />
+        <FiMail />
       </Button>
       {showBuyMeCoffeeButton && buyMeCoffee ? (
-        <Button as="a" 
-          href={buyMeCoffee} 
-          target="_blank"
-        >
+        <Button as="a" href={buyMeCoffee} target="_blank">
           <Image
             src="/images/icons/buyMeCoffee.png"
             alt="Buy Me A Coffee"

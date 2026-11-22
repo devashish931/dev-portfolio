@@ -1,148 +1,122 @@
 import React, { useEffect, useRef, useState } from "react";
-import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
-import { SUBJECT_DATA } from "@/config/constants";
-import SocialMediaButtons from "./socialMediaButtons";
+import { AiOutlineMenu } from "react-icons/ai";
+import { SUBJECT_DATA } from "@/config/constants/common";
 import Button from "./button";
 import NavLink from "./navLink";
-import { LINKS } from "@/config/appConfig";
+import Sidebar from "./sidebar";
+import { LINKS, ROUTES } from "@/config/appConfig";
 import { useRouter } from "next/router";
 import cn from "@/lib/utils";
 
 interface NavbarProps {
-  onChange: (isOpen: boolean)=>void
+  onChange: (isOpen: boolean) => void;
 }
 
 const Navbar = ({ onChange }: NavbarProps) => {
   const [nav, setNav] = useState(false);
-  const router = useRouter();
-  const { sectionId } = router.query;
+  const { asPath } = useRouter();
 
-  const ref = useRef<HTMLDivElement | null>(null);
+  const sidebarRef = useRef<HTMLDivElement | null>(null);
+
+  const closeNav = () => setNav(false);
 
   useEffect(() => {
-    if(!nav) return;
-    const handleOutSideClick = (event: MouseEvent) => {
-      if (!ref.current?.contains(event.target as Node)) {
-        setNav(false);
+    if (!nav) return;
+
+    const handleOutsideClick = (event: MouseEvent) => {
+      if (!sidebarRef.current?.contains(event.target as Node)) {
+        closeNav();
       }
     };
 
     const handleEscClick = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
-        setNav(false);
+        closeNav();
       }
     };
 
-    window.addEventListener("mousedown", handleOutSideClick);
+    window.addEventListener("mousedown", handleOutsideClick);
     window.addEventListener("keydown", handleEscClick);
 
     return () => {
-      window.removeEventListener("mousedown", handleOutSideClick);
+      window.removeEventListener("mousedown", handleOutsideClick);
       window.removeEventListener("keydown", handleEscClick);
     };
-  }, [ref, nav]);
+  }, [nav]);
 
-  const handleNav = () => {
-    setNav(!nav);
+  useEffect(() => {
+    onChange(nav);
+
+    if (sidebarRef.current) {
+      sidebarRef.current.inert = !nav;
+    }
+  }, [nav, onChange]);
+
+  const { firstName, lastName } = SUBJECT_DATA.name;
+
+  const isActiveLink = (path: string, currentPath: string) => {
+    if (path === ROUTES.HOME) {
+      return currentPath.split("?")[0] === ROUTES.HOME;
+    }
+    return currentPath.startsWith(path);
   };
 
-  useEffect(()=>{
-    onChange(nav);
-    if(ref.current){
-      ref.current.inert = !nav;
-    }
-  },[nav])
-
   return (
-    <nav className="fixed z-[60] h-20 w-full bg-primary/20 shadow-xl backdrop-blur-lg">
-      <div className="flex h-full w-full items-center justify-between px-4 md:px-8 2xl:px-16">
-        <div className="text-3xl font-extrabold">
-          <h1>{SUBJECT_DATA.name}</h1>
-        </div>
-        <div>
-          <ul className="-lg:mx-5 -mx-3 hidden items-center md:flex">
-            {LINKS.map(({ name, href, options }, idx) => (
-              <li  key={idx}>
-                <NavLink
-                 
+    <nav className="fixed left-0 top-0 z-[60] h-16 w-full bg-background/20 shadow-xl backdrop-blur-lg">
+      <div className="w-full px-6 md:px-10 lg:px-12 xl:px-0">
+        <div className="container mx-auto flex h-full w-full items-center justify-between py-3">
+          <NavLink
+            href={ROUTES.HOME}
+            className="flex shrink-0 items-center text-xl"
+          >
+            <span className="mr-2 flex h-10 w-10 items-center justify-center border-2 border-brand/80 p-1 text-lg font-extrabold uppercase text-brand">
+              DT
+            </span>
+
+            <span>
+              {firstName} <span className="hidden md:inline">{lastName}</span>
+            </span>
+          </NavLink>
+
+          <ul className="hidden items-center md:flex">
+            {LINKS.map(({ name, href, options, icon: Icon, asButton }, idx) => (
+              <li key={name}>
+                <Button
+                  as="a"
+                  variant={asButton ? "bordered-ghost-primary" : "ghost"}
                   href={href}
-                  className={cn("flex h-20 items-center px-3 lg:px-5", {
-                    "text-yellow-400": sectionId
-                      ? sectionId === href?.replace("/", "")
-                      : !idx,
-                  })}
+                  buttonClassName={cn(
+                    "flex h-8 items-center !px-2 text-xs lg:text-sm",
+                    asButton ? "ml-2" : "hover:text-yellow-300",
+                    {
+                      "text-yellow-400": asPath
+                        ? isActiveLink(href, asPath)
+                        : !idx,
+                    },
+                  )}
                   {...(options || {})}
                 >
                   {name}
-                </NavLink>
+                  {Icon && <Icon className="ml-1.5 h-3 w-3" />}
+                </Button>
               </li>
             ))}
           </ul>
-          <Button icon onClick={handleNav} disableHoverStyles buttonClassName="bg-transparent p-1.5 border-none" className="bg-transparent cursor-pointer md:hidden" aria-label="Open Navigation">
+
+          <Button
+            icon
+            onClick={() => setNav(true)}
+            buttonClassName="bg-transparent !p-1.5 border-none"
+            className="cursor-pointer bg-transparent md:hidden"
+            aria-label="Open Navigation"
+            aria-expanded={nav}
+          >
             <AiOutlineMenu size={25} />
           </Button>
         </div>
       </div>
-      <div
-        className={
-          nav
-            ? "fixed left-0 top-0 h-screen w-full bg-black/70 transition-all duration-500 md:hidden"
-            : ""
-        }
-      >
-        <div
-          className={cn(
-            "md:hidden",
-            nav
-            ? "fixed left-0 top-0 h-screen w-[75%] bg-gray-900 p-5 duration-500 ease-in sm:w-[60%] sm:p-10 md:w-[45%]"
-            : "fixed left-[-100%] top-0 p-10 duration-500 ease-in"
-          )
-          }
-          role="dialog"
-          aria-modal={nav}
-          aria-label="Navigation Menu"
-          ref={ref}
-        >
-          <div>
-            <div className="flex w-full items-center justify-end">
-              <Button
-                onClick={handleNav}
-                icon
-                buttonClassName="!bg-black !p-2 opacity-80"
-                aria-label="Close Menu"
-              >
-                <AiOutlineClose size={14} />
-              </Button>
-            </div>
-          </div>
-          <div className="flex flex-col py-4">
-            <ul className="uppercase" aria-label="Main Navigation">
-              {LINKS.map(({ name, href, options }, idx) => (
-                <li  key={idx}>
-                  <NavLink
-                   
-                    href={href}
-                    className="block py-4 text-sm"
-                    {...(options || {})}
-                    onClick={() => setNav(false)}
-                  >
-                    {name}
-                  </NavLink>
-                </li>
-              ))}
-            </ul>
-            <div className="pt-40">
-              <p className="font-bold-200 bg-gradient-to-r from-purple-400 to-cyan-700 bg-clip-text uppercase tracking-widest text-transparent">
-                Let&#39;s Connect
-              </p>
-              <SocialMediaButtons
-                className="my-4 w-[220px]"
-                buttonClassName="!bg-black"
-              />
-            </div>
-          </div>
-        </div>
-      </div>
+
+      <Sidebar ref={sidebarRef} isOpen={nav} onClose={closeNav} />
     </nav>
   );
 };

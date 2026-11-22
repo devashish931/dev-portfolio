@@ -1,29 +1,55 @@
-import { SUBJECT_DATA } from "./constants";
+import { IconType } from "react-icons";
+import { SUBJECT_DATA } from "./constants/common";
+import { FiExternalLink } from "react-icons/fi";
 
 export const SECTIONS = {
-  HOME: "/home",
-  ABOUT: "/about",
+  Hero: "#",
+  PROJECTS: "#projects",
+  ABOUT: "#about",
+  SKILLS: "#skills",
+  EXPERIENCE: "#experience",
+  CONTACT: "#contact",
+};
+
+export const ROUTES = {
+  HOME: "/",
   PROJECTS: "/projects",
+  ABOUT: "/about",
   SKILLS: "/skills",
+  EXPERIENCES: "/experiences",
   CONTACT: "/contact",
 };
 
 export const LINKS: {
   name: string;
   href: string;
+  icon?: IconType;
+  asButton?: boolean;
   options?: Record<string, string>;
 }[] = [
   {
     name: "Home",
-    href: SECTIONS.HOME,
-  },
-  {
-    name: "About",
-    href: SECTIONS.ABOUT,
+    href: ROUTES.HOME,
   },
   {
     name: "Projects",
-    href: SECTIONS.PROJECTS,
+    href: ROUTES.PROJECTS,
+  },
+  {
+    name: "About",
+    href: ROUTES.ABOUT,
+  },
+  {
+    name: "Skills",
+    href: ROUTES.SKILLS,
+  },
+  {
+    name: "Experience",
+    href: ROUTES.EXPERIENCES,
+  },
+  {
+    name: "Contact",
+    href: ROUTES.CONTACT,
   },
   {
     name: "Resume",
@@ -32,13 +58,7 @@ export const LINKS: {
       target: "_blank",
       rel: "noreferrer",
     },
-  },
-  {
-    name: "Skills",
-    href: SECTIONS.SKILLS, // Refer to skills section
-  },
-  {
-    name: "Contact",
-    href: SECTIONS.CONTACT,
+    asButton: true,
+    icon: FiExternalLink,
   },
 ];
