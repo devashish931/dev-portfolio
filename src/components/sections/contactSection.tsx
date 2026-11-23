@@ -42,13 +42,13 @@ export default function ContactSection({
 
           <Button
             as="Link"
-            href={`mailto:${SUBJECT_DATA.email_id}`}
+            href={`mailto:${SUBJECT_DATA.contact.email}`}
             variant="bordered-primary"
             size="lg"
             className="w-full"
             buttonClassName="min-h-[64px] w-full font-semibold"
           >
-            {SUBJECT_DATA.email_id}
+            {SUBJECT_DATA.contact.email}
           </Button>
         </div>
       </div>

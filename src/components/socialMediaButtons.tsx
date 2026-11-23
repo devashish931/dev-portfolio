@@ -16,8 +16,10 @@ const SocialMediaButtons = ({
   buttonClassName = "",
   showBuyMeCoffeeButton = false,
 }: SocialMediaButtonsProps) => {
-  const { github, linkedin, email, buyMeCoffee } =
-    SUBJECT_DATA?.social_media_links || {};
+  const { github, linkedin, email, buyMeACoffee } = {
+    ...SUBJECT_DATA?.social,
+    ...SUBJECT_DATA.contact,
+  };
 
   return (
     <div
@@ -56,8 +58,8 @@ const SocialMediaButtons = ({
       >
         <FiMail />
       </Button>
-      {showBuyMeCoffeeButton && buyMeCoffee ? (
-        <Button as="a" href={buyMeCoffee} target="_blank">
+      {showBuyMeCoffeeButton && buyMeACoffee ? (
+        <Button as="a" href={buyMeACoffee} target="_blank">
           <Image
             src="/images/icons/buyMeCoffee.png"
             alt="Buy Me A Coffee"

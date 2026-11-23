@@ -1,27 +1,14 @@
 import Image from "next/image";
 import React from "react";
-import { SubjectProject } from "@/lib/types";
+import { ProjectItem } from "@/lib/types";
 import cn from "@/lib/utils";
-
-type ProjectItem = SubjectProject & {
-  domain?: string;
-  description?: string;
-  tags?: string[];
-};
 
 interface ProjectCardProps {
   item: ProjectItem;
 }
 
 const ProjectCard = ({ item }: ProjectCardProps) => {
-  const {
-    image,
-    shortDescription,
-    name,
-    title,
-    category = "tech",
-    tags,
-  } = item;
+  const { image, shortDescription, title, category = "tech", tags } = item;
 
   return (
     <article
@@ -37,7 +24,7 @@ const ProjectCard = ({ item }: ProjectCardProps) => {
         <div className="relative h-full w-full overflow-hidden bg-primary/10 transition-transform duration-500 ease-in-out">
           <Image
             src={image.card}
-            alt={name}
+            alt={title}
             fill
             sizes="(max-width: 640px) 90vw, 45vw"
             className="object-cover transition-transform duration-500 group-hover:scale-105"

@@ -1,10 +1,11 @@
 import React from "react";
-import Link from "next/link";
 import PageLayout from "@/components/pageLayout";
 import Button from "@/components/button";
 import { SUBJECT_DATA } from "@/config/constants/common";
 import { FiArrowRight, FiDownload } from "react-icons/fi";
 import { ROUTES } from "@/config/appConfig";
+import { EXPERIENCES } from "@/config/constants/experiences";
+import { EDUCATION } from "@/config/constants/education";
 
 export default function ExperiencePage() {
   return (
@@ -18,7 +19,7 @@ export default function ExperiencePage() {
         {/* Work experience */}
         <section aria-label="Work experience">
           <div className="divide-y divide-brand/40 border-y border-brand/40">
-            {SUBJECT_DATA.experiences.map((experience, index) => (
+            {EXPERIENCES.map((experience, index) => (
               <article
                 key={`${experience.company}-${experience.position}`}
                 className="grid gap-4 py-7 md:grid-cols-[180px_minmax(0,1fr)] md:gap-8 lg:grid-cols-[220px_minmax(0,1fr)] lg:gap-10"
@@ -77,7 +78,7 @@ export default function ExperiencePage() {
           </p>
 
           <div className="divide-y divide-brand/40 border-y border-brand/40">
-            {SUBJECT_DATA.education.map((education) => (
+            {EDUCATION.map((education) => (
               <article
                 key={education.institution}
                 className="grid gap-3 py-7 md:grid-cols-[180px_minmax(0,1fr)] md:gap-8 lg:grid-cols-[220px_minmax(0,1fr)] lg:gap-10"

@@ -1,13 +1,12 @@
 import PageLayout from "@/components/pageLayout";
 import { FiArrowRight, FiPlus } from "react-icons/fi";
-import { SUBJECT_DATA } from "@/config/constants/common";
 import Image from "next/image";
 import Button from "@/components/button";
-import { SKILL_CATEGORIES } from "@/config/constants/skills";
+import { SKILL_CATEGORIES, SKILLS } from "@/config/constants/skills";
 import { ROUTES } from "@/config/appConfig";
 
 export default function SkillsPage() {
-  const skills = SUBJECT_DATA.Skills;
+  const skills = SKILLS;
   const groupedSkills = skills.reduce<
     Record<string, (typeof skills)[number][]>
   >((groups, skill) => {

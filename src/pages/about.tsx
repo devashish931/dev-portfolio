@@ -3,12 +3,13 @@ import PageLayout from "@/components/pageLayout";
 import Button from "@/components/button";
 import { FiArrowRight } from "react-icons/fi";
 import { ROUTES } from "@/config/appConfig";
+import { SUBJECT_DATA } from "@/config/constants/common";
 
 const PROFILE_DETAILS = [
-  { label: "Role", value: "Senior Frontend Developer" },
-  { label: "Experience", value: "5+ years" },
-  { label: "Education", value: "BCA, Computer Applications" },
-  { label: "Location", value: "Agra, India" },
+  { label: "Role", value: SUBJECT_DATA.role },
+  { label: "Experience", value: SUBJECT_DATA.experience },
+  { label: "Education", value: SUBJECT_DATA.education },
+  { label: "Location", value: SUBJECT_DATA.location },
 ];
 
 const PRINCIPLES = [

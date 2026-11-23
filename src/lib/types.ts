@@ -10,10 +10,11 @@ export type SliderBtnActions = ValueOf<typeof SLIDER_BTN_ACTIONS>;
 
 export type ProjectTag = keyof typeof PROJECT_TAGS;
 
-export type SubjectProject = {
+export type ProjectItem = {
   title: string;
-  name: string;
+  slug: string;
   link: string;
+  year: string;
   image: {
     card: string;
     hero: string;
@@ -23,7 +24,7 @@ export type SubjectProject = {
   category: string;
 
   role: string;
-
+  team: string;
   responsibilities?: string[];
 
   challenges?: {

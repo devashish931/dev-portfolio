@@ -1,11 +1,11 @@
 import React from "react";
 import SectionLayout from "@/components/sectionLayout";
 import { SectionProps } from "@/lib/types";
-import { SUBJECT_DATA } from "@/config/constants/common";
 import { ROUTES, SECTIONS } from "@/config/appConfig";
+import { EXPERIENCES } from "@/config/constants/experiences";
 
 const ExperienceSection = (props: SectionProps) => {
-  const experience = SUBJECT_DATA.experiences[0];
+  const experience = EXPERIENCES[0];
   return (
     <SectionLayout
       titleProps={{

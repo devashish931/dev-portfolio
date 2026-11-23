@@ -13,8 +13,8 @@ export default function ProjectsPage() {
       <div className="grid w-full grid-cols-1 flex-col gap-6 sm:grid-cols-2 md:grid-cols-1">
         {PROJECTS.map((project) => (
           <Link
-            key={project.name}
-            href={`/projects/${project.name}`}
+            key={project.slug}
+            href={`/projects/${project.slug}`}
             className="block w-full"
           >
             <ProjectCard item={project} />

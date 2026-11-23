@@ -1,18 +1,19 @@
 import Image from "next/image";
 import Link from "next/link";
 import { PROJECTS } from "@/config/constants/projects";
-import type { SubjectProject } from "@/lib/types";
+
 import Button from "@/components/button";
 import PageLayout from "@/components/pageLayout";
 import SectionTitle from "@/components/sectionTitle";
 import { FiArrowRight, FiExternalLink } from "react-icons/fi";
 import { PROJECT_TAGS } from "@/config/constants/projectTags";
+import { ProjectItem } from "@/lib/types";
 
 export function getStaticPaths() {
   return {
     paths: PROJECTS.map((project) => ({
       params: {
-        slug: project.name,
+        slug: project.slug,
       },
     })),
     fallback: false,
@@ -20,7 +21,7 @@ export function getStaticPaths() {
 }
 
 export function getStaticProps({ params }: { params: { slug: string } }) {
-  const project = PROJECTS.find((item) => item.name === params.slug);
+  const project = PROJECTS.find((item) => item.slug === params.slug);
 
   if (!project) {
     return {
@@ -33,8 +34,8 @@ export function getStaticProps({ params }: { params: { slug: string } }) {
   };
 }
 
-export default function ProjectPage({ project }: { project: SubjectProject }) {
-  const currentIndex = PROJECTS.findIndex((item) => item.name === project.name);
+export default function ProjectPage({ project }: { project: ProjectItem }) {
+  const currentIndex = PROJECTS.findIndex((item) => item.slug === project.slug);
 
   const nextProject = PROJECTS[currentIndex + 1];
 
@@ -59,8 +60,8 @@ export default function ProjectPage({ project }: { project: SubjectProject }) {
         </div>
         <div className="col-span-1 mb-16 grid grid-cols-1 border border-brand/30 bg-brand/10 md:grid-cols-4 lg:h-full lg:grid-cols-1">
           <MetadataItem label="Role" value={project.role} />
-          <MetadataItem label="Year" value={"project.year"} />
-          <MetadataItem label="Team" value={"project.team"} />
+          <MetadataItem label="Year" value={project.year} />
+          <MetadataItem label="Team" value={project.team} />
           <MetadataItem label="Domain" value={project.category} />
         </div>
       </div>
@@ -154,7 +155,7 @@ export default function ProjectPage({ project }: { project: SubjectProject }) {
       {nextProject && (
         <section className="mt-20">
           <Link
-            href={`/projects/${nextProject.name}`}
+            href={`/projects/${nextProject.slug}`}
             className="group flex items-center justify-between border border-brand/30 bg-brand/10 p-5 transition-colors hover:border-accent/60 hover:bg-brand/20 sm:p-7"
           >
             <div>

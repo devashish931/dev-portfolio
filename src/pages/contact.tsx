@@ -42,37 +42,29 @@ export default function Contact() {
           <ContactCard
             icon={<FiMail />}
             label="Email"
-            value={SUBJECT_DATA.email_id}
-            href={`mailto:${SUBJECT_DATA.email_id}`}
+            value={SUBJECT_DATA.contact.email}
+            href={`mailto:${SUBJECT_DATA.contact.email}`}
           />
-
           <ContactCard
             icon={<FiPhone />}
             label="Phone"
-            value={`+91 ${SUBJECT_DATA.mobile_number}`}
-            href={`tel:${SUBJECT_DATA.mobile_number}`}
+            value={`${SUBJECT_DATA.contact.phone}`}
+            href={`tel:${SUBJECT_DATA.contact.phone}`}
           />
-
-          {/* Add your actual profile URLs when available */}
-          {SUBJECT_DATA.social_media_links.linkedin && (
-            <ContactCard
-              icon={<FiLinkedin />}
-              label="LinkedIn"
-              value={SUBJECT_DATA.social_media_links.linkedin}
-              href={SUBJECT_DATA.social_media_links.linkedin}
-              external
-            />
-          )}
-
-          {SUBJECT_DATA.social_media_links.linkedin && (
-            <ContactCard
-              icon={<FiGithub />}
-              label="GitHub"
-              value={SUBJECT_DATA.social_media_links.github}
-              href={SUBJECT_DATA.social_media_links.github}
-              external
-            />
-          )}
+          <ContactCard
+            icon={<FiLinkedin />}
+            label="LinkedIn"
+            value={SUBJECT_DATA.social.linkedin}
+            href={SUBJECT_DATA.social.linkedin}
+            external
+          />
+          <ContactCard
+            icon={<FiGithub />}
+            label="GitHub"
+            value={SUBJECT_DATA.social.github}
+            href={SUBJECT_DATA.social.github}
+            external
+          />
         </div>
 
         {/* Contact form */}

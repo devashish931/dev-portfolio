@@ -2,12 +2,12 @@ import React, { useMemo } from "react";
 import ProjectCard from "../projectCard";
 import SectionLayout from "../sectionLayout";
 import { SectionProps } from "@/lib/types";
-import { SUBJECT_DATA } from "@/config/constants/common";
 import { ROUTES, SECTIONS } from "@/config/appConfig";
 import Link from "next/link";
+import { PROJECTS } from "@/config/constants/projects";
 
 const ProjectSection = (props: SectionProps) => {
-  const projects = useMemo(() => SUBJECT_DATA.projects.slice(0, 4), []);
+  const projects = useMemo(() => PROJECTS.slice(0, 4), []);
   return (
     <SectionLayout
       titleProps={{
@@ -20,13 +20,13 @@ const ProjectSection = (props: SectionProps) => {
       {...props}
     >
       <div className="grid w-full grid-cols-1 place-items-center gap-6 pb-2 text-lg sm:grid-cols-2 md:grid-cols-1">
-        {projects.map((item, idx) => (
+        {projects.map((item) => (
           <Link
-            key={idx}
+            key={item.slug}
             className="h-full w-full"
-            href={`/projects/${item.name}`}
+            href={`/projects/${item.slug}`}
           >
-            <ProjectCard key={idx} item={item} />
+            <ProjectCard item={item} />
           </Link>
         ))}
       </div>

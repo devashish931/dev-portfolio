@@ -1,17 +1,12 @@
 import React, { useMemo } from "react";
-import Image from "next/image";
 import SectionLayout from "../sectionLayout";
 import { SectionProps } from "@/lib/types";
-import { SUBJECT_DATA } from "@/config/constants/common";
-import Link from "next/link";
 import { ROUTES, SECTIONS } from "@/config/appConfig";
 import Tag from "../tag";
+import { SKILLS } from "@/config/constants/skills";
 
 const SkillSection = (props: SectionProps) => {
-  const skills = useMemo(
-    () => SUBJECT_DATA.Skills.filter(({ featured }) => featured),
-    [],
-  );
+  const skills = useMemo(() => SKILLS.filter(({ featured }) => featured), []);
 
   return (
     <SectionLayout
