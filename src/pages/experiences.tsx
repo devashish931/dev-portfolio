@@ -95,11 +95,11 @@ export default function ExperiencePage() {
                       {education.degree}
                     </h2>
 
-                    <p className="mt-1 text-sm text-primary-text/80 sm:text-base">
+                    <p className="mt-1 text-sm text-primary-text/90 sm:text-base">
                       {education.institution}
                     </p>
 
-                    <p className="mt-1 text-sm text-primary-text/60">
+                    <p className="mt-1 text-sm text-primary-text/70">
                       {education.field}
                     </p>
                   </div>

@@ -31,7 +31,7 @@ const Footer = () => {
             {firstName} {lastName}, Frontend Developer
           </p>
 
-          <p className="text-xs text-primary-text/50">
+          <p className="text-xs text-primary-text/70">
             &copy; {new Date().getFullYear()} All rights reserved.
           </p>
         </div>

@@ -11,6 +11,7 @@ export interface SectionTitleProps {
   className?: string;
   pretitleClassName?: string;
   children?: React.ReactNode;
+  titleLevel?: 1 | 2 | 3;
 }
 
 const SectionTitle = ({
@@ -21,7 +22,10 @@ const SectionTitle = ({
   titleClassName,
   pretitleClassName,
   children,
+  titleLevel = 2,
 }: SectionTitleProps) => {
+  const Title = `h${titleLevel}` as const;
+
   return (
     <div
       className={cn(
@@ -41,14 +45,14 @@ const SectionTitle = ({
           </p>
         )}
 
-        <h2
+        <Title
           className={cn(
             "font-display text-brand-50 text-3xl font-bold leading-tight text-white sm:text-4xl md:text-5xl",
             titleClassName,
           )}
         >
           {children}
-        </h2>
+        </Title>
       </div>
 
       {href && (

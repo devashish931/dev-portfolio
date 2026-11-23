@@ -21,7 +21,7 @@ export default function ProjectsPage() {
               href={`/projects/${project.slug}`}
               className="block w-full"
             >
-              <ProjectCard item={project} />
+              <ProjectCard item={project} titleLevel={2} />
             </Link>
           ))}
         </div>
