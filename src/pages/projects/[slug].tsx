@@ -41,12 +41,10 @@ export default function ProjectPage({ project }: { project: ProjectItem }) {
 
   return (
     <PageLayout pretitle={project.category} title={project.title}>
-      {/* Introduction */}
       <p className="mb-7 max-w-2xl text-lg leading-relaxed text-primary-text/80 md:text-xl">
         {project.shortDescription}
       </p>
 
-      {/* Hero image */}
       <div className="mb-8 grid grid-cols-1 gap-6 lg:grid-cols-4 lg:gap-12">
         <div className="relative col-span-1 aspect-[1.91/1] overflow-hidden border border-brand/30 bg-brand/10 lg:col-span-3">
           <Image
@@ -66,15 +64,12 @@ export default function ProjectPage({ project }: { project: ProjectItem }) {
         </div>
       </div>
 
-      {/* Main content */}
       <div className="grid grid-cols-1 gap-8 lg:grid-cols-4 lg:gap-12">
         <div className="col-span-1 space-y-10 lg:col-span-3">
-          {/* Overview */}
           <ContentSection eyebrow="Overview" title="What it is">
             <p>{project.description}</p>
           </ContentSection>
 
-          {/* Challenges */}
           {project.challenges?.length ? (
             <ContentSection eyebrow="Challenge" title="The problem to solve">
               <div className="space-y-5">
@@ -85,7 +80,6 @@ export default function ProjectPage({ project }: { project: ProjectItem }) {
             </ContentSection>
           ) : null}
 
-          {/* Approach */}
           {project.responsibilities?.length ||
           project.challenges?.some((item) => item.solution) ? (
             <ContentSection eyebrow="Approach" title="What I built">
@@ -113,14 +107,29 @@ export default function ProjectPage({ project }: { project: ProjectItem }) {
           ) : null}
         </div>
 
-        {/* Sidebar */}
         <aside className="cols-span-1 space-y-5 lg:self-start">
-          {/* Tech stack */}
-          {project.tags?.length ? (
+          {project.technologies?.length ? (
             <section className="border border-brand/30 bg-brand/10 p-5">
               <h2 className="mb-4 text-lg font-semibold text-white">
                 Tech stack
               </h2>
+
+              <div className="flex flex-wrap gap-2">
+                {project.technologies.map((tech) => (
+                  <span
+                    key={tech}
+                    className="text-brand-200 border border-brand/40 bg-brand/20 px-2.5 py-1 text-xs"
+                  >
+                    {tech}
+                  </span>
+                ))}
+              </div>
+            </section>
+          ) : null}
+
+          {project.tags?.length ? (
+            <section className="border border-brand/30 bg-brand/10 p-5">
+              <h2 className="mb-4 text-lg font-semibold text-white">Tags</h2>
 
               <div className="flex flex-wrap gap-2">
                 {project.tags.map((tag) => (
@@ -135,7 +144,6 @@ export default function ProjectPage({ project }: { project: ProjectItem }) {
             </section>
           ) : null}
 
-          {/* Project link */}
           <Button
             as="a"
             href={project.link}
@@ -151,10 +159,10 @@ export default function ProjectPage({ project }: { project: ProjectItem }) {
         </aside>
       </div>
 
-      {/* Next project */}
       {nextProject && (
         <section className="mt-20">
           <Link
+            replace
             href={`/projects/${nextProject.slug}`}
             className="group flex items-center justify-between border border-brand/30 bg-brand/10 p-5 transition-colors hover:border-accent/60 hover:bg-brand/20 sm:p-7"
           >

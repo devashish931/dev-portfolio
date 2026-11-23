@@ -1,4 +1,5 @@
 import { PROJECT_TAGS } from "@/config/constants/projectTags";
+import { SkillName, SKILLS } from "@/config/constants/skills";
 
 export type ProjectTag = keyof typeof PROJECT_TAGS;
 
@@ -24,6 +25,6 @@ export type ProjectItem = {
     solution: string;
   }[];
 
-  technologies: string[];
+  technologies: SkillName[];
   tags: ProjectTag[];
 };
