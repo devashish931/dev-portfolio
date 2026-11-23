@@ -33,8 +33,6 @@ const HeroSection = (props: SectionProps) => {
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        console.log("entry", entry);
-
         if (entry) setScrollIndicatorVisible(entry.isIntersecting);
       },
       { threshold: 0 },

@@ -6,6 +6,7 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Head from "next/head";
 import MainLayout from "@/components/layout/MainLayout";
+import SEO from "@/components/seo";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -15,6 +16,7 @@ const MyApp: AppType<{ session: Session | null }> = ({
 }) => {
   return (
     <>
+      <SEO />
       <main className={inter.className}>
         <Head>
           <meta name="description" content="portfolio" />

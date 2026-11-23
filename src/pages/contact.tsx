@@ -12,6 +12,8 @@ import Button from "@/components/ui/button";
 import PageLayout from "@/components/layout/pageLayout";
 import { ContactCard } from "@/components/contactCard";
 import { FormField } from "@/components/ui/formField";
+import SEO from "@/components/seo";
+import { ROUTES } from "@/config/appConfig";
 
 const validationSchema = Yup.object().shape({
   name: Yup.string().required("Please input your name"),
@@ -31,113 +33,116 @@ const initialValues = {
 
 export default function Contact() {
   return (
-    <PageLayout
-      pretitle="Contact"
-      title="Let's build something together."
-      description="Hiring for a frontend role or have a project in mind? Send a note and I will reply promptly."
-    >
-      <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.25fr)] lg:gap-14">
-        {/* Contact information */}
-        <div className="space-y-3">
-          <ContactCard
-            icon={<FiMail />}
-            label="Email"
-            value={SUBJECT_DATA.contact.email}
-            href={`mailto:${SUBJECT_DATA.contact.email}`}
-          />
-          <ContactCard
-            icon={<FiPhone />}
-            label="Phone"
-            value={`${SUBJECT_DATA.contact.phone}`}
-            href={`tel:${SUBJECT_DATA.contact.phone}`}
-          />
-          <ContactCard
-            icon={<FiLinkedin />}
-            label="LinkedIn"
-            value={SUBJECT_DATA.social.linkedin}
-            href={SUBJECT_DATA.social.linkedin}
-            external
-          />
-          <ContactCard
-            icon={<FiGithub />}
-            label="GitHub"
-            value={SUBJECT_DATA.social.github}
-            href={SUBJECT_DATA.social.github}
-            external
-          />
-        </div>
+    <>
+      <SEO title="Contact" path={ROUTES.CONTACT} />
+      <PageLayout
+        pretitle="Contact"
+        title="Let's build something together."
+        description="Hiring for a frontend role or have a project in mind? Send a note and I will reply promptly."
+      >
+        <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.25fr)] lg:gap-14">
+          {/* Contact information */}
+          <div className="space-y-3">
+            <ContactCard
+              icon={<FiMail />}
+              label="Email"
+              value={SUBJECT_DATA.contact.email}
+              href={`mailto:${SUBJECT_DATA.contact.email}`}
+            />
+            <ContactCard
+              icon={<FiPhone />}
+              label="Phone"
+              value={`${SUBJECT_DATA.contact.phone}`}
+              href={`tel:${SUBJECT_DATA.contact.phone}`}
+            />
+            <ContactCard
+              icon={<FiLinkedin />}
+              label="LinkedIn"
+              value={SUBJECT_DATA.social.linkedin}
+              href={SUBJECT_DATA.social.linkedin}
+              external
+            />
+            <ContactCard
+              icon={<FiGithub />}
+              label="GitHub"
+              value={SUBJECT_DATA.social.github}
+              href={SUBJECT_DATA.social.github}
+              external
+            />
+          </div>
 
-        {/* Contact form */}
-        <div className="border border-primary/80 bg-gradient-to-br from-primary/5 to-primary/15 p-6 sm:p-8">
-          <Formik
-            initialValues={initialValues}
-            validationSchema={validationSchema}
-            onSubmit={async (values, { resetForm }) => {
-              try {
-                const response = await sendContactForm(values);
+          {/* Contact form */}
+          <div className="border border-primary/80 bg-gradient-to-br from-primary/5 to-primary/15 p-6 sm:p-8">
+            <Formik
+              initialValues={initialValues}
+              validationSchema={validationSchema}
+              onSubmit={async (values, { resetForm }) => {
+                try {
+                  const response = await sendContactForm(values);
 
-                if (response.status === 200) {
-                  toast.success("Message sent successfully!");
-                  resetForm();
-                } else {
+                  if (response.status === 200) {
+                    toast.success("Message sent successfully!");
+                    resetForm();
+                  } else {
+                    toast.error("Something went wrong. Please try again.");
+                  }
+                } catch {
                   toast.error("Something went wrong. Please try again.");
                 }
-              } catch {
-                toast.error("Something went wrong. Please try again.");
-              }
-            }}
-          >
-            {({ errors, touched, isSubmitting }) => (
-              <Form className="flex flex-col gap-5">
-                <FormField
-                  name="name"
-                  label="Name"
-                  placeholder="Your name"
-                  error={errors.name}
-                  touched={touched.name}
-                />
-                <FormField
-                  name="email"
-                  label="Email"
-                  type="email"
-                  placeholder="you@company.com"
-                  error={errors.email}
-                  touched={touched.email}
-                />
-                <FormField
-                  name="message"
-                  label="Message"
-                  as="textarea"
-                  placeholder="Tell me about the role or project"
-                  error={errors.message}
-                  touched={touched.message}
-                />
+              }}
+            >
+              {({ errors, touched, isSubmitting }) => (
+                <Form className="flex flex-col gap-5">
+                  <FormField
+                    name="name"
+                    label="Name"
+                    placeholder="Your name"
+                    error={errors.name}
+                    touched={touched.name}
+                  />
+                  <FormField
+                    name="email"
+                    label="Email"
+                    type="email"
+                    placeholder="you@company.com"
+                    error={errors.email}
+                    touched={touched.email}
+                  />
+                  <FormField
+                    name="message"
+                    label="Message"
+                    as="textarea"
+                    placeholder="Tell me about the role or project"
+                    error={errors.message}
+                    touched={touched.message}
+                  />
 
-                <Button
-                  type="submit"
-                  disabled={isSubmitting}
-                  variant="solid-accent"
-                  className="w-full"
-                  buttonClassName="min-h-12 w-full justify-center font-semibold"
-                >
-                  {isSubmitting ? (
-                    <>
-                      <FaSpinner className="mr-2 animate-spin" />
-                      Sending...
-                    </>
-                  ) : (
-                    "Send message"
-                  )}
-                </Button>
+                  <Button
+                    type="submit"
+                    disabled={isSubmitting}
+                    variant="solid-accent"
+                    className="w-full"
+                    buttonClassName="min-h-12 w-full justify-center font-semibold"
+                  >
+                    {isSubmitting ? (
+                      <>
+                        <FaSpinner className="mr-2 animate-spin" />
+                        Sending...
+                      </>
+                    ) : (
+                      "Send message"
+                    )}
+                  </Button>
 
-                <p className="text-sm text-primary-text/70">
-                  I usually reply within a day.
-                </p>
-              </Form>
-            )}
-          </Formik>
+                  <p className="text-sm text-primary-text/70">
+                    I usually reply within a day.
+                  </p>
+                </Form>
+              )}
+            </Formik>
+          </div>
         </div>
-      </div>
-    </PageLayout>
+      </PageLayout>
+    </>
   );
 }

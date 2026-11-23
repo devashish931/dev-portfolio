@@ -24,7 +24,6 @@ const handler = async (req: any, res: any) => {
       return res.status(400).json({ message: err?.mesage });
     }
   }
-  console.log(req.body);
   return res.status(400).json({ message: "Bad Request" });
 };
 export default handler;

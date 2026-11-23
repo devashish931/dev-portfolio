@@ -1,0 +1,33 @@
+# Devashish Trehan
+
+> Senior Frontend Developer with 5+ years of experience building production-grade web applications.
+
+## Skills
+
+React.js, Next.js, TypeScript, JavaScript, frontend architecture, performance optimization, and responsive web development.
+
+## Projects
+
+- [WPT Play](https://devtrehan.in/projects/wpt-play): A poker platform providing players with an online gaming experience.
+- [World Poker Tour](https://devtrehan.in/projects/wpt): The official website of the World Poker Tour.
+- [College Disha](https://devtrehan.in/projects/college-disha): An education platform offering career and college guidance.
+- [Sosh Nft](https://devtrehan.in/projects/sosh-nft): An NFT-focused digital platform.
+- [Casino Lobby](https://devtrehan.in/projects/casino-lobby): A configurable casino lobby displaying games, banners, and dynamic content.
+- [Casino CMS](https://devtrehan.in/projects/casino-cms): A CMS for managing casino content, games, banners, game-banners etc. and Plugin to generate lobbies
+- [WPT Global](https://devtrehan.in/projects/wpt-global): The official user-facing web platform of WPT Global.
+- [WPTG CMS](https://devtrehan.in/projects/wptg-cms): A customized Strapi CMS for managing WPT Global website content.
+- [WPTG Promo](https://devtrehan.in/projects/wptg-promo): A promotional platform for presenting WPT Global campaigns and offers.
+- [WPT CMS](https://devtrehan.in/projects/wpt-cms): A customized Strapi CMS for managing World Poker Tour website content.
+- [My Portfolio](https://devtrehan.in/projects/dev-portfolio): A personal portfolio showcasing my frontend development experience and projects.
+- [Distinct](https://devtrehan.in/projects/distinct): A live data intelligence platform that captures and analyzes customer interactions at events.
+- [GamaVrs](https://devtrehan.in/projects/gamavrs): An administration dashboard for managing a game avatar marketplace.
+- [Moments NFT](https://devtrehan.in/projects/moment-nft): An NFT auction platform for digital collectibles.
+
+## Links
+
+- [Portfolio](https://devtrehan.in)
+- [PROJECTS](https://devtrehan.in/projects)
+- [ABOUT](https://devtrehan.in/about)
+- [SKILLS](https://devtrehan.in/skills)
+- [EXPERIENCES](https://devtrehan.in/experiences)
+- [CONTACT](https://devtrehan.in/contact)
