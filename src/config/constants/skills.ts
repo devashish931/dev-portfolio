@@ -1,3 +1,5 @@
+import { Skill } from "@/types/skill";
+
 export const SKILL_CATEGORIES = [
   {
     name: "Frameworks",
@@ -177,4 +179,36 @@ export const SKILLS = [
     value: "/images/techStack/GithubCopilot.svg",
     url: "https://github.com/features/copilot",
   },
-];
+  {
+    name: "Bootstrap",
+    category: "State and styling",
+    hidden: true,
+  },
+  {
+    name: "dnd-kit",
+    category: "User Experience",
+    hidden: true,
+  },
+  {
+    name: "MySQL",
+    category: "Database",
+    hidden: true,
+  },
+  {
+    name: "React Hook Form",
+    category: "Form",
+    hidden: true,
+  },
+  {
+    name: "React Query",
+    category: "Server State",
+    hidden: true,
+  },
+  {
+    name: "Yup",
+    category: "Form",
+    hidden: true,
+  },
+] as const satisfies readonly Skill[];
+
+export type SkillName = (typeof SKILLS)[number]["name"];

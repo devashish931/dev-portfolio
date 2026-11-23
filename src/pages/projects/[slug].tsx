@@ -8,6 +8,8 @@ import SectionTitle from "@/components/sectionTitle";
 import { FiArrowRight, FiExternalLink } from "react-icons/fi";
 import { PROJECT_TAGS } from "@/config/constants/projectTags";
 import { ProjectItem } from "@/types/project";
+import SEO from "@/components/seo";
+import { ROUTES } from "@/config/appConfig";
 
 export function getStaticPaths() {
   return {
@@ -40,137 +42,155 @@ export default function ProjectPage({ project }: { project: ProjectItem }) {
   const nextProject = PROJECTS[currentIndex + 1];
 
   return (
-    <PageLayout pretitle={project.category} title={project.title}>
-      {/* Introduction */}
-      <p className="mb-7 max-w-2xl text-lg leading-relaxed text-primary-text/80 md:text-xl">
-        {project.shortDescription}
-      </p>
+    <>
+      <SEO
+        title={project.title}
+        description={project.shortDescription}
+        path={`${ROUTES.PROJECTS}/${project.slug}`}
+        image={project.image.hero}
+      />
+      <PageLayout pretitle={project.category} title={project.title}>
+        <p className="mb-7 max-w-2xl text-lg leading-relaxed text-primary-text/80 md:text-xl">
+          {project.shortDescription}
+        </p>
 
-      {/* Hero image */}
-      <div className="mb-8 grid grid-cols-1 gap-6 lg:grid-cols-4 lg:gap-12">
-        <div className="relative col-span-1 aspect-[1.91/1] overflow-hidden border border-brand/30 bg-brand/10 lg:col-span-3">
-          <Image
-            src={project.image.hero}
-            alt={`${project.title} project preview`}
-            fill
-            priority
-            sizes="(max-width: 1024px) 100vw, 1200px"
-            className="object-cover object-top"
-          />
+        <div className="mb-8 grid grid-cols-1 gap-6 lg:grid-cols-4 lg:gap-12">
+          <div className="relative col-span-1 aspect-[1.91/1] overflow-hidden border border-brand/30 bg-brand/10 lg:col-span-3">
+            <Image
+              src={project.image.hero}
+              alt={`${project.title} project preview`}
+              fill
+              priority
+              sizes="(max-width: 1024px) 100vw, 1200px"
+              className="object-cover object-top"
+            />
+          </div>
+          <div className="col-span-1 mb-16 grid grid-cols-1 border border-brand/30 bg-brand/10 md:grid-cols-4 lg:h-full lg:grid-cols-1">
+            <MetadataItem label="Role" value={project.role} />
+            <MetadataItem label="Year" value={project.year} />
+            <MetadataItem label="Team" value={project.team} />
+            <MetadataItem label="Domain" value={project.category} />
+          </div>
         </div>
-        <div className="col-span-1 mb-16 grid grid-cols-1 border border-brand/30 bg-brand/10 md:grid-cols-4 lg:h-full lg:grid-cols-1">
-          <MetadataItem label="Role" value={project.role} />
-          <MetadataItem label="Year" value={project.year} />
-          <MetadataItem label="Team" value={project.team} />
-          <MetadataItem label="Domain" value={project.category} />
-        </div>
-      </div>
 
-      {/* Main content */}
-      <div className="grid grid-cols-1 gap-8 lg:grid-cols-4 lg:gap-12">
-        <div className="col-span-1 space-y-10 lg:col-span-3">
-          {/* Overview */}
-          <ContentSection eyebrow="Overview" title="What it is">
-            <p>{project.description}</p>
-          </ContentSection>
-
-          {/* Challenges */}
-          {project.challenges?.length ? (
-            <ContentSection eyebrow="Challenge" title="The problem to solve">
-              <div className="space-y-5">
-                {project.challenges.map((challenge, index) => (
-                  <p key={index}>{challenge.problem}</p>
-                ))}
-              </div>
+        <div className="grid grid-cols-1 gap-8 lg:grid-cols-4 lg:gap-12">
+          <div className="col-span-1 space-y-10 lg:col-span-3">
+            <ContentSection eyebrow="Overview" title="What it is">
+              <p>{project.description}</p>
             </ContentSection>
-          ) : null}
 
-          {/* Approach */}
-          {project.responsibilities?.length ||
-          project.challenges?.some((item) => item.solution) ? (
-            <ContentSection eyebrow="Approach" title="What I built">
-              {project.challenges?.some((item) => item.solution) && (
-                <div className="mb-5 space-y-4">
-                  {project.challenges.map((challenge, index) =>
-                    challenge.solution ? (
-                      <p key={index}>{challenge.solution}</p>
-                    ) : null,
-                  )}
-                </div>
-              )}
-
-              {project.responsibilities?.length ? (
-                <ul className="space-y-3">
-                  {project.responsibilities.map((item, index) => (
-                    <li key={index} className="flex gap-3">
-                      <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-accent" />
-                      <span>{item}</span>
-                    </li>
+            {project.challenges?.length ? (
+              <ContentSection eyebrow="Challenge" title="The problem to solve">
+                <div className="space-y-5">
+                  {project.challenges.map((challenge, index) => (
+                    <p key={index}>{challenge.problem}</p>
                   ))}
-                </ul>
-              ) : null}
-            </ContentSection>
-          ) : null}
+                </div>
+              </ContentSection>
+            ) : null}
+
+            {project.responsibilities?.length ||
+            project.challenges?.some((item) => item.solution) ? (
+              <ContentSection eyebrow="Approach" title="What I built">
+                {project.challenges?.some((item) => item.solution) && (
+                  <div className="mb-5 space-y-4">
+                    {project.challenges.map((challenge, index) =>
+                      challenge.solution ? (
+                        <p key={index}>{challenge.solution}</p>
+                      ) : null,
+                    )}
+                  </div>
+                )}
+
+                {project.responsibilities?.length ? (
+                  <ul className="space-y-3">
+                    {project.responsibilities.map((item, index) => (
+                      <li key={index} className="flex gap-3">
+                        <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-accent" />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                ) : null}
+              </ContentSection>
+            ) : null}
+          </div>
+
+          <aside className="cols-span-1 space-y-5 lg:self-start">
+            {project.technologies?.length ? (
+              <section className="border border-brand/30 bg-brand/10 p-5">
+                <h2 className="mb-4 text-lg font-semibold text-white">
+                  Tech stack
+                </h2>
+
+                <div className="flex flex-wrap gap-2">
+                  {project.technologies.map((tech) => (
+                    <span
+                      key={tech}
+                      className="text-brand-200 border border-brand/40 bg-brand/20 px-2.5 py-1 text-xs"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </section>
+            ) : null}
+
+            {project.tags?.length ? (
+              <section className="border border-brand/30 bg-brand/10 p-5">
+                <h2 className="mb-4 text-lg font-semibold text-white">Tags</h2>
+
+                <div className="flex flex-wrap gap-2">
+                  {project.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="text-brand-200 border border-brand/40 bg-brand/20 px-2.5 py-1 text-xs"
+                    >
+                      {PROJECT_TAGS[tag]}
+                    </span>
+                  ))}
+                </div>
+              </section>
+            ) : null}
+
+            <Button
+              as="a"
+              href={project.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              variant="solid-accent"
+              className="w-full"
+              buttonClassName="min-h-11 w-full justify-center font-semibold text-black"
+            >
+              Visit live site
+              <FiExternalLink className="ml-2" />
+            </Button>
+          </aside>
         </div>
 
-        {/* Sidebar */}
-        <aside className="cols-span-1 space-y-5 lg:self-start">
-          {/* Tech stack */}
-          {project.tags?.length ? (
-            <section className="border border-brand/30 bg-brand/10 p-5">
-              <h2 className="mb-4 text-lg font-semibold text-white">
-                Tech stack
-              </h2>
+        {nextProject && (
+          <section className="mt-20">
+            <Link
+              replace
+              href={`/projects/${nextProject.slug}`}
+              className="group flex items-center justify-between border border-brand/30 bg-brand/10 p-5 transition-colors hover:border-accent/60 hover:bg-brand/20 sm:p-7"
+            >
+              <div>
+                <p className="mb-2 text-sm text-primary-text/70">
+                  Next project
+                </p>
 
-              <div className="flex flex-wrap gap-2">
-                {project.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    className="text-brand-200 border border-brand/40 bg-brand/20 px-2.5 py-1 text-xs"
-                  >
-                    {PROJECT_TAGS[tag]}
-                  </span>
-                ))}
+                <h2 className="text-xl font-semibold text-white sm:text-2xl">
+                  {nextProject.title}
+                </h2>
               </div>
-            </section>
-          ) : null}
 
-          {/* Project link */}
-          <Button
-            as="a"
-            href={project.link}
-            target="_blank"
-            rel="noopener noreferrer"
-            variant="solid-accent"
-            className="w-full"
-            buttonClassName="min-h-11 w-full justify-center font-semibold text-black"
-          >
-            Visit live site
-            <FiExternalLink className="ml-2" />
-          </Button>
-        </aside>
-      </div>
-
-      {/* Next project */}
-      {nextProject && (
-        <section className="mt-20">
-          <Link
-            href={`/projects/${nextProject.slug}`}
-            className="group flex items-center justify-between border border-brand/30 bg-brand/10 p-5 transition-colors hover:border-accent/60 hover:bg-brand/20 sm:p-7"
-          >
-            <div>
-              <p className="mb-2 text-sm text-primary-text/70">Next project</p>
-
-              <h2 className="text-xl font-semibold text-white sm:text-2xl">
-                {nextProject.title}
-              </h2>
-            </div>
-
-            <FiArrowRight className="h-6 w-6 text-accent transition-transform group-hover:translate-x-2" />
-          </Link>
-        </section>
-      )}
-    </PageLayout>
+              <FiArrowRight className="h-6 w-6 text-accent transition-transform group-hover:translate-x-2" />
+            </Link>
+          </section>
+        )}
+      </PageLayout>
+    </>
   );
 }
 

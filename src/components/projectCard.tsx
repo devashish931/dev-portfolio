@@ -5,10 +5,13 @@ import cn from "@/lib/utils";
 
 interface ProjectCardProps {
   item: ProjectItem;
+  titleLevel?: 2 | 3 | 4 | 5 | 6;
 }
 
-const ProjectCard = ({ item }: ProjectCardProps) => {
+const ProjectCard = ({ item, titleLevel = 3 }: ProjectCardProps) => {
   const { image, shortDescription, title, category = "tech", tags } = item;
+
+  const Title = `h${titleLevel}` as const;
 
   return (
     <article
@@ -43,9 +46,9 @@ const ProjectCard = ({ item }: ProjectCardProps) => {
             {category}
           </span>
 
-          <h3 className="font-display text-2xl font-semibold text-white transition-colors duration-300 md:text-3xl lg:text-4xl">
+          <Title className="font-display text-2xl font-semibold text-white transition-colors duration-300 md:text-3xl lg:text-4xl">
             {title}
-          </h3>
+          </Title>
 
           {shortDescription && (
             <p className="text-brand-200/80 text-base md:text-lg xl:text-xl">

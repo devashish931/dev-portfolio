@@ -32,9 +32,9 @@ export default function StatsSection({
                 "border-t border-primary/50 sm:border-l sm:border-t-0",
             )}
           >
-            <h3 className="text-2xl font-bold leading-tight text-accent sm:text-3xl lg:text-4xl">
+            <p className="text-2xl font-bold leading-tight text-accent sm:text-3xl lg:text-4xl">
               {stat.value}
-            </h3>
+            </p>
 
             <p className="mt-3 text-base leading-relaxed">{stat.label}</p>
           </div>

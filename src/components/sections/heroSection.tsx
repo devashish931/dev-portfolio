@@ -33,8 +33,6 @@ const HeroSection = (props: SectionProps) => {
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        console.log("entry", entry);
-
         if (entry) setScrollIndicatorVisible(entry.isIntersecting);
       },
       { threshold: 0 },
@@ -64,9 +62,9 @@ const HeroSection = (props: SectionProps) => {
             Open to new opportunities
           </Tag>
           <div className="mb-2">
-            <h2 className="mb-1 flex items-center break-words text-3xl font-semibold text-white sm:mb-2 sm:text-5xl md:mb-4">
+            <h1 className="mb-1 flex items-center break-words text-3xl font-semibold text-white sm:mb-2 sm:text-5xl md:mb-4">
               {SUBJECT_DATA.fullName}
-            </h2>
+            </h1>
             <p className="text-lg font-medium text-accent">
               Senior Frontend Developer
             </p>

@@ -43,6 +43,7 @@ export default function PageHeader({
         pretitle={pretitle}
         className={"!mb-0"}
         titleClassName="max-w-4xl"
+        titleLevel={1}
       >
         {title}
       </SectionTitle>

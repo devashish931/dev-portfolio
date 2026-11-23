@@ -4,9 +4,13 @@ import { ROUTES, SECTIONS } from "@/config/appConfig";
 import Tag from "../ui/tag";
 import { SKILLS } from "@/config/constants/skills";
 import { SectionProps } from "@/types/common";
+import { Skill } from "@/types/skill";
 
 const SkillSection = (props: SectionProps) => {
-  const skills = useMemo(() => SKILLS.filter(({ featured }) => featured), []);
+  const skills = useMemo(
+    () => SKILLS.filter(({ hidden, featured }: Skill) => featured && !hidden),
+    [],
+  );
 
   return (
     <SectionLayout

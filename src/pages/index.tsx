@@ -5,15 +5,14 @@ import HeroSection from "@/components/sections/heroSection";
 import ProjectSection from "@/components/sections/projectSection";
 import SkillSection from "@/components/sections/skillSection";
 import StatsSection from "@/components/sections/statsSection";
+import SEO from "@/components/seo";
 import { SUBJECT_DATA } from "@/config/constants/common";
 import Head from "next/head";
 
 export default function App() {
   return (
     <>
-      <Head>
-        <title>{SUBJECT_DATA.fullName}'s Portfolio</title>
-      </Head>
+      <SEO />
       <div className="flex flex-col gap-12 md:gap-16 lg:gap-24">
         <HeroSection />
         <ProjectSection />
