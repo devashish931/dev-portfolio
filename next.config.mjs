@@ -7,10 +7,9 @@ await import("./src/env.mjs");
 /** @type {import("next").NextConfig} */
 const config = {
   reactStrictMode: true,
-  images:{
+  images: {
     dangerouslyAllowSVG: true,
-  }
-
+  },
 };
 
 export default config;

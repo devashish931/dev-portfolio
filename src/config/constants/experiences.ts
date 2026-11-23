@@ -1,0 +1,83 @@
+import { ExperienceItem } from "@/types/experience";
+
+export const EXPERIENCES: ExperienceItem[] = [
+  {
+    company: "Oodles Technologies",
+    position: "Senior Lead - Frontend Development",
+    startDate: "Aug 2024",
+    endDate: "Aug 2026",
+    location: "Gurugram, Haryana, India",
+    responsibilities: [
+      "Led frontend architecture and engineering delivery across multiple production applications within the WPTGlobal ecosystem, driving technical decisions, implementation standards, and production releases.",
+      "Improved application performance by up to 36% through SSR, code splitting, lazy loading, and rendering optimizations.",
+      "Conceptualized and developed custom Strapi plugins using React and TypeScript, including a dnd-kit-based Casino Builder that enabled non-technical teams to configure gaming lobbies using games, banners, and reusable layouts.",
+      "Built a localized content duplication plugin, reducing repetitive content creation time by 60% across supported locales.",
+      "Created Casino Lobby and Promotions micro-frontends and integrated them into WPTGOGO alongside poker, cashier, and authentication modules through iframe-based architecture and postMessage communication.",
+      "Designed and developed a reusable authentication application supporting standalone deployment and shared UI consumption through Git submodules.",
+      "Mentored a team of 3 frontend developers, established code review standards, and drove technical planning with product teams and clients.",
+    ],
+    technologies: [
+      "React.js",
+      "Next.js",
+      "TypeScript",
+      "Strapi",
+      "Micro-Frontends",
+      "DnD Kit",
+    ],
+  },
+  {
+    company: "Oodles Technologies",
+    position: "Senior Associate Consultant",
+    startDate: "Aug 2022",
+    endDate: "Jul 2024",
+    location: "Gurugram, Haryana, India",
+    responsibilities: [
+      "Delivered scalable production applications using React.js, Next.js, Vue.js, Nuxt.js, and Strapi CMS.",
+      "Established scalable component architectures and shared frontend standards, improving development efficiency by 20%.",
+      "Collaborated with cross-functional teams to translate business requirements into reliable frontend solutions.",
+      "Contributed to frontend architecture, technical implementation, and performance improvements across multiple applications.",
+    ],
+    technologies: [
+      "React.js",
+      "Next.js",
+      "Vue.js",
+      "Nuxt.js",
+      "Strapi",
+      "TypeScript",
+    ],
+  },
+  {
+    company: "Oodles Technologies",
+    position: "Associate Consultant",
+    startDate: "Jun 2021",
+    endDate: "Jul 2022",
+    location: "Gurugram, Haryana, India",
+    responsibilities: [
+      "Developed frontend features for Web3 applications, integrating MetaMask authentication, Ethereum-based functionality, and REST APIs.",
+      "Built reusable component libraries and modular UI implementations to improve consistency across applications.",
+      "Optimized 5+ applications, achieving Lighthouse scores above 90 through rendering and resource-loading improvements.",
+      "Delivered responsive, cross-browser interfaces for customer-facing applications serving 50K+ monthly users.",
+    ],
+    technologies: [
+      "React.js",
+      "JavaScript",
+      "Redux",
+      "REST APIs",
+      "MetaMask",
+      "Ethereum",
+    ],
+  },
+  {
+    company: "Balj Services Pvt. Ltd.",
+    position: "Web Developer",
+    startDate: "Oct 2020",
+    endDate: "May 2021",
+    location: "Noida, Uttar Pradesh, India",
+    responsibilities: [
+      "Spearheaded the frontend migration of CollegeDisha from a legacy PHP system to Next.js, preserving SEO equity.",
+      "Designed frontend architecture and defined rendering strategies while maintaining critical URL structures.",
+      "Improved platform performance by 25% through SSR, code splitting, and frontend optimizations, while enhancing long-term maintainability.",
+    ],
+    technologies: ["Next.js", "React.js", "JavaScript", "PHP", "SSR"],
+  },
+];
