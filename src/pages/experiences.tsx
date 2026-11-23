@@ -107,7 +107,7 @@ export default function ExperiencePage() {
         {/* Call to action */}
         <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
           <Button
-            as="a"
+            as="Link"
             href={ROUTES.CONTACT}
             variant="solid-accent"
             className="w-full sm:w-fit"

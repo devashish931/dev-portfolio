@@ -82,7 +82,7 @@ const Navbar = ({ onChange }: NavbarProps) => {
             {LINKS.map(({ name, href, options, icon: Icon, asButton }, idx) => (
               <li key={name}>
                 <Button
-                  as="a"
+                  as="Link"
                   variant={asButton ? "bordered-ghost-primary" : "ghost"}
                   href={href}
                   buttonClassName={cn(

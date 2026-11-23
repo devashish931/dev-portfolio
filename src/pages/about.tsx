@@ -64,7 +64,7 @@ export default function AboutPage() {
 
           <div className="flex flex-col gap-3 pt-2 sm:flex-row">
             <Button
-              as="a"
+              as="Link"
               href={ROUTES.CONTACT}
               variant="solid-accent"
               className="w-full sm:w-fit"
@@ -76,7 +76,7 @@ export default function AboutPage() {
             </Button>
 
             <Button
-              as="a"
+              as="Link"
               href={ROUTES.EXPERIENCES}
               variant="bordered-primary"
               className="w-full sm:w-fit"

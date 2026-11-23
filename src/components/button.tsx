@@ -1,36 +1,37 @@
 import cn from "@/lib/utils";
 import { cva, type VariantProps } from "class-variance-authority";
+import Link from "next/link";
 import React from "react";
 
 const buttonVariants = cva(
   [
     "inline-flex items-center justify-center",
     "transition-all duration-300 ease-in-out",
-    "focus:outline-none focus:ring-2 focus:ring-opacity-50",
+    "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2",
     "cursor-pointer",
   ],
   {
     variants: {
       variant: {
         "solid-primary":
-          "border border-primary bg-primary focus:ring-primary text-white",
+          "border border-primary bg-primary text-white focus-visible:ring-primary",
 
         "solid-accent":
-          "border border-accent bg-accent focus:ring-accent text-black",
+          "border border-accent bg-accent text-black focus-visible:ring-accent",
 
         "bordered-primary":
-          "border border-primary bg-transparent focus:ring-primary text-white",
+          "border border-primary bg-transparent text-white focus-visible:ring-primary",
 
         "bordered-accent":
-          "border border-accent bg-transparent focus:ring-accent text-white",
+          "border border-accent bg-transparent text-white focus-visible:ring-accent",
 
-        ghost: "bg-transparent border-transparent text-white",
+        ghost: "border-transparent bg-transparent text-white",
 
         "bordered-ghost-primary":
-          "border border-primary bg-transparent focus:ring-primary text-white",
+          "border border-primary bg-transparent text-white focus-visible:ring-primary",
 
         "bordered-ghost-accent":
-          "border border-accent bg-transparent focus:ring-accent text-black",
+          "border border-accent bg-transparent text-black focus-visible:ring-accent",
       },
 
       size: {
@@ -39,34 +40,25 @@ const buttonVariants = cva(
         lg: "px-5 py-3",
         icon: "p-4",
       },
-
-      hover: {
-        default: "",
-        none: "",
-      },
     },
 
     defaultVariants: {
       variant: "bordered-ghost-primary",
       size: "default",
-      hover: "default",
     },
   },
 );
 
 const buttonWrapperVariants = cva(
-  "group relative inline-block w-fit tranition-all duration-300",
+  "group relative inline-block w-fit transition-all duration-300",
   {
     variants: {
       variant: {
         "solid-primary": "bg-primary/20",
         "solid-accent": "bg-accent/20",
-
         "bordered-primary": "bg-primary/20",
         "bordered-accent": "bg-accent/20",
-
         ghost: "bg-transparent",
-
         "bordered-ghost-primary": "bg-transparent",
         "bordered-ghost-accent": "bg-transparent",
       },
@@ -84,13 +76,12 @@ const buttonWrapperVariants = cva(
   },
 );
 
-interface ButtonProps
-  extends VariantProps<typeof buttonVariants>, React.ComponentProps<"button"> {
+interface ButtonProps extends VariantProps<typeof buttonVariants> {
   children: React.ReactNode;
-  as?: "button" | "a" | "span";
+  as?: "button" | "a" | "Link";
   href?: string;
   className?: string;
-  onClick?: React.MouseEventHandler<HTMLButtonElement>;
+  onClick?: React.MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>;
   target?: string;
   rel?: string;
   download?: boolean | string;
@@ -98,6 +89,7 @@ interface ButtonProps
   buttonClassName?: string;
   disabled?: boolean;
   disableHoverStyles?: boolean;
+  type?: React.ComponentProps<"button">["type"];
 }
 
 const Button: React.FC<ButtonProps> = ({
@@ -107,7 +99,7 @@ const Button: React.FC<ButtonProps> = ({
   buttonClassName = "",
   className,
   icon = false,
-  disabled,
+  disabled = false,
   onClick,
   download,
   target,
@@ -115,57 +107,75 @@ const Button: React.FC<ButtonProps> = ({
   disableHoverStyles,
   variant,
   size,
-  hover,
+  type,
   ...props
 }) => {
-  const elementProps = (() => {
-    switch (as) {
-      case "a":
-        return {
-          role: "button",
-          ...(!disabled ? { href, download, target, rel } : {}),
-          ...props,
-        };
+  const effectiveHover = disableHoverStyles ? "none" : "default";
 
-      case "button":
-        return {
-          onClick: !disabled ? onClick : undefined,
-          ...props,
-        };
+  const wrapperClassName = cn(
+    buttonWrapperVariants({
+      variant,
+      hover: effectiveHover,
+    }),
+    className,
+  );
 
-      case "span":
-        return props;
-    }
-  })();
+  const elementClassName = cn(
+    buttonVariants({
+      variant,
+      size: size ?? (icon ? "icon" : "default"),
+    }),
+    disabled && "pointer-events-none opacity-60",
+    buttonClassName,
+  );
 
-  const effectiveHover = disableHoverStyles ? "none" : hover;
+  const commonProps = {
+    className: elementClassName,
+    onClick: disabled ? undefined : onClick,
+    ...props,
+  };
 
   return (
-    <div
-      className={cn(
-        buttonWrapperVariants({
-          variant,
-          hover: effectiveHover,
-        }),
-        className,
+    <div className={wrapperClassName}>
+      {as === "button" && (
+        <button {...commonProps} disabled={disabled} type={type}>
+          {children}
+        </button>
       )}
-    >
-      {React.createElement(
-        as,
-        {
-          className: cn(
-            buttonVariants({
-              variant,
-              size: size ?? (icon ? "icon" : "default"),
-              hover: effectiveHover,
-            }),
-            disabled && "opacity-60",
-            buttonClassName,
-          ),
-          disabled: as === "button" ? disabled : undefined,
-          ...elementProps,
-        },
-        children,
+
+      {as === "a" && (
+        <a
+          {...commonProps}
+          href={disabled ? undefined : href}
+          target={target}
+          rel={rel}
+          download={download}
+          aria-disabled={disabled || undefined}
+          tabIndex={disabled ? -1 : undefined}
+        >
+          {children}
+        </a>
+      )}
+
+      {as === "Link" && (
+        <Link
+          {...commonProps}
+          href={disabled ? "#" : href || "#"}
+          target={target}
+          rel={rel}
+          download={download}
+          aria-disabled={disabled || undefined}
+          tabIndex={disabled ? -1 : undefined}
+          onClick={(event) => {
+            if (disabled) {
+              event.preventDefault();
+              return;
+            }
+            onClick?.(event);
+          }}
+        >
+          {children}
+        </Link>
       )}
     </div>
   );
