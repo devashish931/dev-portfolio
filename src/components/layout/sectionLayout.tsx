@@ -1,6 +1,6 @@
 import cn from "@/lib/utils";
 import react, { forwardRef, HTMLAttributes, ReactNode } from "react";
-import SectionTitle, { SectionTitleProps } from "./sectionTitle";
+import SectionTitle, { SectionTitleProps } from "../sectionTitle";
 
 export interface SectionLayoutProps extends HTMLAttributes<HTMLElement> {
   children: ReactNode;

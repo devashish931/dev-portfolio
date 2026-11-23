@@ -1,4 +1,4 @@
-import { ExperienceItem } from "@/lib/types";
+import { ExperienceItem } from "@/types/experience";
 
 export const EXPERIENCES: ExperienceItem[] = [
   {

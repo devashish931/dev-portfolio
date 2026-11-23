@@ -1,10 +1,10 @@
 import React, { useMemo } from "react";
 import ProjectCard from "../projectCard";
-import SectionLayout from "../sectionLayout";
-import { SectionProps } from "@/lib/types";
+import SectionLayout from "../layout/sectionLayout";
 import { ROUTES, SECTIONS } from "@/config/appConfig";
 import Link from "next/link";
 import { PROJECTS } from "@/config/constants/projects";
+import { SectionProps } from "@/types/common";
 
 const ProjectSection = (props: SectionProps) => {
   const projects = useMemo(() => PROJECTS.slice(0, 4), []);

@@ -1,4 +1,4 @@
-import Button from "@/components/button";
+import Button from "@/components/ui/button";
 import SectionTitle, { SectionTitleProps } from "@/components/sectionTitle";
 import { useRouter } from "next/router";
 import { FiArrowLeft } from "react-icons/fi";

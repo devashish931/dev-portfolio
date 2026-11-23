@@ -1,7 +1,7 @@
-import PageLayout from "@/components/pageLayout";
+import PageLayout from "@/components/layout/pageLayout";
 import { FiArrowRight, FiPlus } from "react-icons/fi";
 import Image from "next/image";
-import Button from "@/components/button";
+import Button from "@/components/ui/button";
 import { SKILL_CATEGORIES, SKILLS } from "@/config/constants/skills";
 import { ROUTES } from "@/config/appConfig";
 

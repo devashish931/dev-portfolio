@@ -1,6 +1,6 @@
 import Image from "next/image";
 import React from "react";
-import { ProjectItem } from "@/lib/types";
+import { ProjectItem } from "@/types/project";
 import cn from "@/lib/utils";
 
 interface ProjectCardProps {

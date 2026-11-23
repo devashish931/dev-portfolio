@@ -1,9 +1,9 @@
-import Button from "@/components/button";
+import Button from "@/components/ui/button";
 import { SUBJECT_DATA } from "@/config/constants/common";
-import { SectionProps } from "@/lib/types";
-import SectionLayout from "../sectionLayout";
+import SectionLayout from "../layout/sectionLayout";
 import cn from "@/lib/utils";
 import { ROUTES } from "@/config/appConfig";
+import { SectionProps } from "@/types/common";
 
 export default function ContactSection({
   className,

@@ -1,12 +1,12 @@
-import React, { forwardRef } from "react";
+import React, { forwardRef, useEffect, useRef } from "react";
 import { AiOutlineClose } from "react-icons/ai";
 import { FiArrowRight } from "react-icons/fi";
 import { useRouter } from "next/router";
 import { LINKS, ROUTES } from "@/config/appConfig";
-import SocialMediaButtons from "./socialMediaButtons";
-import Button from "./button";
+import SocialMediaButtons from "../socialMediaButtons";
+import Button from "../ui/button";
 import cn from "@/lib/utils";
-import NavLink from "./navLink";
+import NavLink from "../navLink";
 import { SUBJECT_DATA } from "@/config/constants/common";
 
 interface SidebarProps {
@@ -27,20 +27,29 @@ const Sidebar = forwardRef<HTMLDivElement, SidebarProps>(
       return currentPath.startsWith(path);
     };
 
+    useEffect(() => {
+      if (!isOpen) return;
+
+      const originalOverflow = document.body.style.overflow;
+
+      document.body.style.overflow = "hidden";
+
+      return () => {
+        document.body.style.overflow = originalOverflow;
+      };
+    }, [isOpen]);
+
     return (
       <div
-        className={
-          isOpen
-            ? "fixed left-0 top-0 h-screen w-full bg-black/70 transition-all duration-500 md:hidden"
-            : ""
-        }
+        className={cn(
+          "bg-black/70 transition-all duration-500 md:hidden",
+          isOpen ? "fixed left-0 top-0 h-screen w-full" : "",
+        )}
       >
         <div
           className={cn(
-            "flex flex-col justify-between md:hidden",
-            isOpen
-              ? "fixed left-0 top-0 h-screen w-[75%] bg-elevated duration-500 ease-in sm:w-[60%] md:w-[45%]"
-              : "fixed left-[-100%] top-0 duration-500 ease-in",
+            "fixed top-0 flex h-screen w-[75%] flex-col justify-between bg-elevated duration-500 ease-in sm:w-[60%] md:w-[45%]",
+            isOpen ? "left-0 opacity-100" : "left-[-100%] opacity-0",
           )}
           role="dialog"
           aria-modal={isOpen}
@@ -111,7 +120,7 @@ const Sidebar = forwardRef<HTMLDivElement, SidebarProps>(
               href={SUBJECT_DATA.resume}
               variant="solid-accent"
               className="w-full"
-              buttonClassName="h-16 w-full justify-center text-lg font-bold text-black"
+              buttonClassName="h-14 w-full justify-center text-base font-bold text-black"
               download
               target="_blank"
               rel="noreferrer"

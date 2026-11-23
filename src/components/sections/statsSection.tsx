@@ -1,5 +1,5 @@
 import cn from "@/lib/utils";
-import { SectionProps } from "@/lib/types";
+import { SectionProps } from "@/types/common";
 
 const STATS = [
   {

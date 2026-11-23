@@ -1,8 +1,8 @@
 import React from "react";
-import SectionLayout from "@/components/sectionLayout";
-import { SectionProps } from "@/lib/types";
+import SectionLayout from "@/components/layout/sectionLayout";
 import { ROUTES, SECTIONS } from "@/config/appConfig";
 import { EXPERIENCES } from "@/config/constants/experiences";
+import { SectionProps } from "@/types/common";
 
 const ExperienceSection = (props: SectionProps) => {
   const experience = EXPERIENCES[0];

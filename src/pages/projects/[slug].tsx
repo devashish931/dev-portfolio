@@ -2,12 +2,12 @@ import Image from "next/image";
 import Link from "next/link";
 import { PROJECTS } from "@/config/constants/projects";
 
-import Button from "@/components/button";
-import PageLayout from "@/components/pageLayout";
+import Button from "@/components/ui/button";
+import PageLayout from "@/components/layout/pageLayout";
 import SectionTitle from "@/components/sectionTitle";
 import { FiArrowRight, FiExternalLink } from "react-icons/fi";
 import { PROJECT_TAGS } from "@/config/constants/projectTags";
-import { ProjectItem } from "@/lib/types";
+import { ProjectItem } from "@/types/project";
 
 export function getStaticPaths() {
   return {

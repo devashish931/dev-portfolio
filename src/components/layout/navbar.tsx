@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
 import { AiOutlineMenu } from "react-icons/ai";
 import { SUBJECT_DATA } from "@/config/constants/common";
-import Button from "./button";
-import NavLink from "./navLink";
+import Button from "../ui/button";
+import NavLink from "../navLink";
 import Sidebar from "./sidebar";
 import { LINKS, ROUTES } from "@/config/appConfig";
 import { useRouter } from "next/router";

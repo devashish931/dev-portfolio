@@ -1,6 +1,6 @@
 import React from "react";
-import PageLayout from "@/components/pageLayout";
-import Button from "@/components/button";
+import PageLayout from "@/components/layout/pageLayout";
+import Button from "@/components/ui/button";
 import { FiArrowRight } from "react-icons/fi";
 import { ROUTES } from "@/config/appConfig";
 import { SUBJECT_DATA } from "@/config/constants/common";

@@ -2,14 +2,14 @@ import Image from "next/image";
 import React, { useEffect, useRef, useState } from "react";
 import { SUBJECT_DATA } from "@/config/constants/common";
 import SocialMediaButtons from "../socialMediaButtons";
-import SectionLayout from "../sectionLayout";
-import { SectionProps } from "@/lib/types";
+import SectionLayout from "../layout/sectionLayout";
 import { ROUTES, SECTIONS } from "@/config/appConfig";
-import Button from "../button";
-import Tag from "../tag";
+import Button from "../ui/button";
+import Tag from "../ui/tag";
 import StatsSection from "./statsSection";
 import { FiChevronDown } from "react-icons/fi";
 import cn from "@/lib/utils";
+import { SectionProps } from "@/types/common";
 
 const threshold = 100;
 
@@ -119,7 +119,7 @@ const HeroSection = (props: SectionProps) => {
         </div>
 
         <span
-          inert={true}
+          aria-hidden={true}
           onClick={scrollDown}
           className={cn(
             "fixed bottom-4 left-[50%] hidden -translate-x-[50%] cursor-pointer transition-opacity duration-300 ease-in-out lg:block xl:absolute xl:-bottom-8",

@@ -1,6 +1,6 @@
 import React from "react";
 import { FiGithub, FiLinkedin, FiMail } from "react-icons/fi";
-import Button from "./button";
+import Button from "./ui/button";
 import { SUBJECT_DATA } from "@/config/constants/common";
 import cn from "@/lib/utils";
 import Image from "next/image";

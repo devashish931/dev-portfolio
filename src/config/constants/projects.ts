@@ -1,4 +1,4 @@
-import { ProjectItem } from "@/lib/types";
+import { ProjectItem } from "@/types/project";
 
 const projectCardImagesFolderPath = "/images/projects/card";
 const projectHeroImagesFolderPath = "/images/projects/hero";

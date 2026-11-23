@@ -1,7 +1,7 @@
 import React from "react";
 import { SUBJECT_DATA } from "@/config/constants/common";
 import { LINKS } from "@/config/appConfig";
-import NavLink from "./navLink";
+import NavLink from "../navLink";
 import cn from "@/lib/utils";
 
 const Footer = () => {

@@ -35,14 +35,13 @@ const Tag: React.FC<ButtonProps> = ({
   size,
   ...props
 }) => {
-
   return (
     <div
       className={cn(
-          tagVariants({
-              size
-            }),
-            disabled ? "opacity-60" : "",
+        tagVariants({
+          size,
+        }),
+        disabled ? "opacity-60" : "",
         className,
       )}
       {...props}

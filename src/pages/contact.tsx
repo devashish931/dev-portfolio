@@ -8,10 +8,10 @@ import { FaSpinner } from "react-icons/fa";
 
 import { sendContactForm } from "@/lib/api";
 import { SUBJECT_DATA } from "@/config/constants/common";
-import Button from "@/components/button";
-import PageLayout from "@/components/pageLayout";
+import Button from "@/components/ui/button";
+import PageLayout from "@/components/layout/pageLayout";
 import { ContactCard } from "@/components/contactCard";
-import { FormField } from "@/components/formField";
+import { FormField } from "@/components/ui/formField";
 
 const validationSchema = Yup.object().shape({
   name: Yup.string().required("Please input your name"),

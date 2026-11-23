@@ -1,6 +1,6 @@
 import Link from "next/link";
 import ProjectCard from "@/components/projectCard";
-import PageLayout from "@/components/pageLayout";
+import PageLayout from "@/components/layout/pageLayout";
 import { PROJECTS } from "@/config/constants/projects";
 
 export default function ProjectsPage() {

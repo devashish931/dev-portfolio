@@ -1,7 +1,7 @@
 import Link from "next/link";
-import SectionLayout from "../sectionLayout";
+import SectionLayout from "../layout/sectionLayout";
 import SectionTitle from "../sectionTitle";
-import Button from "../button";
+import Button from "../ui/button";
 import { ROUTES } from "@/config/appConfig";
 
 export default function AboutSection() {
