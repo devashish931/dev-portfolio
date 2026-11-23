@@ -204,6 +204,11 @@ export const SKILLS = [
     category: "Server State",
     hidden: true,
   },
+  {
+    name: "Yup",
+    category: "Form",
+    hidden: true,
+  },
 ] as const satisfies readonly Skill[];
 
 export type SkillName = (typeof SKILLS)[number]["name"];
