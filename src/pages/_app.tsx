@@ -16,7 +16,6 @@ const MyApp: AppType<{ session: Session | null }> = ({
 }) => {
   return (
     <>
-      <SEO />
       <main className={inter.className}>
         <Head>
           <meta name="description" content="portfolio" />
