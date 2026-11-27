@@ -7,6 +7,9 @@ import Sidebar from "./sidebar";
 import { LINKS, ROUTES } from "@/config/appConfig";
 import { useRouter } from "next/router";
 import cn from "@/lib/utils";
+import { FiExternalLink } from "react-icons/fi";
+import { LuPalette } from "react-icons/lu";
+import { ThemeSelector } from "../themeSelector";
 
 interface NavbarProps {
   onChange: (isOpen: boolean) => void;
@@ -83,11 +86,11 @@ const Navbar = ({ onChange }: NavbarProps) => {
               <li key={name}>
                 <Button
                   as="Link"
-                  variant={asButton ? "bordered-ghost-primary" : "ghost"}
+                  variant={"ghost"}
                   href={href}
                   buttonClassName={cn(
                     "flex h-8 items-center px-2! text-xs lg:text-sm",
-                    asButton ? "ml-2" : "hover:text-accent",
+                    "hover:text-accent",
                     {
                       "text-accent!": asPath
                         ? isActiveLink(href, asPath)
@@ -97,10 +100,26 @@ const Navbar = ({ onChange }: NavbarProps) => {
                   {...(options || {})}
                 >
                   {name}
-                  {Icon && <Icon className="ml-1.5 h-3 w-3" />}
                 </Button>
               </li>
             ))}
+            <li>
+              <ThemeSelector />
+            </li>
+            <li>
+              <Button
+                as="a"
+                href={SUBJECT_DATA.resume}
+                variant="bordered-ghost-primary"
+                disableHoverStyles
+                buttonClassName="flex h-8 ml-2 items-center px-2! text-xs lg:text-sm"
+                download
+                target="_blank"
+                rel="noreferrer"
+              >
+                Resume <FiExternalLink className="ml-1.5 h-3 w-3" />
+              </Button>
+            </li>
           </ul>
 
           <Button

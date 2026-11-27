@@ -8,6 +8,7 @@ import Button from "../ui/button";
 import cn from "@/lib/utils";
 import NavLink from "../navLink";
 import { SUBJECT_DATA } from "@/config/constants/common";
+import { ThemeSelector } from "../themeSelector";
 
 interface SidebarProps {
   isOpen: boolean;
@@ -17,8 +18,6 @@ interface SidebarProps {
 const Sidebar = forwardRef<HTMLDivElement, SidebarProps>(
   ({ isOpen, onClose }, ref) => {
     const { asPath } = useRouter();
-
-    const navigationLinks = LINKS.filter(({ name }) => name !== "Resume");
 
     const isActiveLink = (path: string, currentPath: string) => {
       if (path === ROUTES.HOME) {
@@ -81,7 +80,7 @@ const Sidebar = forwardRef<HTMLDivElement, SidebarProps>(
 
             <div className="flex flex-col py-4">
               <ul aria-label="Main Navigation">
-                {navigationLinks.map(({ name, href, options }) => {
+                {LINKS.map(({ name, href, options }) => {
                   const active = isActiveLink(href, asPath);
 
                   return (
@@ -115,6 +114,7 @@ const Sidebar = forwardRef<HTMLDivElement, SidebarProps>(
           </div>
 
           <div className="px-6 pb-4">
+            <ThemeSelector className="mb-4" />
             <Button
               as="Link"
               href={SUBJECT_DATA.resume}
@@ -129,7 +129,7 @@ const Sidebar = forwardRef<HTMLDivElement, SidebarProps>(
             </Button>
 
             <SocialMediaButtons
-              className="my-4 w-[220px]"
+              className="my-4 w-55"
               buttonClassName="bg-transparent! border! border-brand/50! hover:border-brand!"
             />
           </div>

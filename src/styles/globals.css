@@ -2,23 +2,110 @@
 
 @custom-variant dark (&:is(.dark *));
 
-@theme {
+/* ========================================
+   THEME CONFIGURATION
+======================================== */
+
+:root,
+[data-theme="indigo"] {
+  color-scheme: dark;
+
+  --primary: rgb(99 102 241);
+  --primary-text: rgb(180 190 220);
+  --brand: rgb(129 140 248);
+  --accent: rgb(45 212 191);
+
+  --background: rgb(15 23 42);
+  --surface: rgb(30 41 59);
+  --elevated: rgb(22 32 50);
+
+  --muted: rgb(148 163 184);
+  --subtle: rgb(100 116 139);
+}
+
+/* Royal Violet + Soft Coral */
+[data-theme="violet"] {
+  --primary: rgb(124 58 237);
+  --primary-text: rgb(196 181 220);
+  --brand: rgb(167 139 250);
+  --accent: rgb(251 113 133);
+
+  --background: rgb(24 18 37);
+  --surface: rgb(41 32 57);
+  --elevated: rgb(33 25 48);
+
+  --muted: rgb(196 181 212);
+  --subtle: rgb(148 130 168);
+}
+
+/* Emerald + Champagne */
+[data-theme="emerald"] {
+  --primary: rgb(5 150 105);
+  --primary-text: rgb(185 207 195);
+  --brand: rgb(52 211 153);
+  --accent: rgb(214 183 121);
+
+  --background: rgb(16 28 25);
+  --surface: rgb(27 42 37);
+  --elevated: rgb(21 35 30);
+
+  --muted: rgb(163 190 175);
+  --subtle: rgb(120 150 133);
+}
+
+/* Cobalt + Electric Lime */
+[data-theme="cobalt"] {
+  --primary: rgb(37 99 235);
+  --primary-text: rgb(185 200 225);
+  --brand: rgb(96 165 250);
+  --accent: rgb(190 242 100);
+
+  --background: rgb(16 24 39);
+  --surface: rgb(30 41 59);
+  --elevated: rgb(22 32 48);
+
+  --muted: rgb(156 176 203);
+  --subtle: rgb(112 132 160);
+}
+
+/* Warm Graphite + Burnt Orange */
+[data-theme="graphite"] {
+  --primary: rgb(234 88 12);
+  --primary-text: rgb(214 198 185);
+  --brand: rgb(249 115 22);
+  --accent: rgb(234 184 138);
+
+  --background: rgb(23 23 23);
+  --surface: rgb(41 37 36);
+  --elevated: rgb(32 29 28);
+
+  --muted: rgb(189 177 166);
+  --subtle: rgb(140 130 120);
+}
+
+/* ========================================
+   TAILWIND THEME TOKENS
+======================================== */
+
+@theme inline {
   --animate-bounce-left: bounce-left 1s ease-in-out infinite;
   --animate-bounce-right: bounce-right 1s ease-in-out infinite;
+  --animate-color-switch: color-switch 2s ease-in-out infinite alternate;
 
   --shadow-card: -8px 8px 0;
+  --drop-shadow-hero: 0px 30px 30px --alpha(var(--brand) / 70%);
 
-  --drop-shadow-hero: 0px 30px 30px rgba(137 139 250 / 0.7);
+  --color-primary: var(--primary);
+  --color-primary-text: var(--primary-text);
+  --color-brand: var(--brand);
+  --color-accent: var(--accent);
 
-  --color-primary: rgb(99 102 241);
-  --color-primary-text: rgb(180 190 220);
-  --color-brand: rgb(129 140 248);
-  --color-accent: rgb(45 212 191);
-  --color-background: rgb(15 23 42);
-  --color-surface: rgb(30 41 59);
-  --color-elevated: rgb(22 32 50);
-  --color-muted: rgb(148 163 184);
-  --color-subtle: rgb(100 116 139);
+  --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-elevated: var(--elevated);
+
+  --color-muted: var(--muted);
+  --color-subtle: var(--subtle);
 
   --ease-anticipate: cubic-bezier(1, -0.6, 0.585, 0.965);
 
@@ -31,6 +118,7 @@
       transform: translateX(10px) rotate(0deg);
     }
   }
+
   @keyframes bounce-left {
     0%,
     100% {
@@ -40,7 +128,20 @@
       transform: translateX(10px) rotate(180deg);
     }
   }
+
+  @keyframes color-switch {
+    from {
+      color: --alpha(var(--brand) / 70%);
+    }
+    to {
+      color: --alpha(var(--accent) / 70%);
+    }
+  }
 }
+
+/* ========================================
+   BASE STYLES
+======================================== */
 
 @layer base {
   *,
@@ -50,16 +151,19 @@
   ::file-selector-button {
     border-color: var(--color-gray-200, currentcolor);
   }
+
+  body {
+    background-color: var(--background);
+    color: var(--primary-text);
+  }
 }
+
+/* ========================================
+   CUSTOM UTILITIES
+======================================== */
 
 @utility container {
   @apply max-w-[1280px]!;
-}
-
-@layer base {
-  body {
-    @apply bg-background text-primary-text;
-  }
 }
 
 .bevel-clip {
@@ -73,13 +177,4 @@
     0% 80%,
     0% 20%
   );
-}
-
-@keyframes color-switch {
-  from {
-    color: --alpha(var(--color-brand) / 70%);
-  }
-  to {
-    color: --alpha(var(--color-accent) / 70%);
-  }
 }

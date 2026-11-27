@@ -54,14 +54,4 @@ export const LINKS: {
     name: "Contact",
     href: ROUTES.CONTACT,
   },
-  {
-    name: "Resume",
-    href: SUBJECT_DATA.resume,
-    options: {
-      target: "_blank",
-      rel: "noreferrer",
-    },
-    asButton: true,
-    icon: FiExternalLink,
-  },
 ];
