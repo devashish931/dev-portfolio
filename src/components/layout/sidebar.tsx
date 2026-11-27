@@ -43,13 +43,13 @@ const Sidebar = forwardRef<HTMLDivElement, SidebarProps>(
       <div
         className={cn(
           "bg-black/70 transition-all duration-500 md:hidden",
-          isOpen ? "fixed left-0 top-0 h-screen w-full" : "",
+          isOpen ? "fixed top-0 left-0 h-screen w-full" : "",
         )}
       >
         <div
           className={cn(
-            "fixed top-0 flex h-screen w-[75%] flex-col justify-between bg-elevated duration-500 ease-in sm:w-[60%] md:w-[45%]",
-            isOpen ? "left-0 opacity-100" : "left-[-100%] opacity-0",
+            "bg-elevated fixed top-0 flex h-screen w-[75%] flex-col justify-between duration-500 ease-in sm:w-[60%] md:w-[45%]",
+            isOpen ? "left-0 opacity-100" : "-left-full opacity-0",
           )}
           role="dialog"
           aria-modal={isOpen}
@@ -57,13 +57,13 @@ const Sidebar = forwardRef<HTMLDivElement, SidebarProps>(
           ref={ref}
         >
           <div>
-            <div className="flex h-16 w-full items-center justify-between gap-4 border-b border-brand/30 px-6">
+            <div className="border-brand/30 flex h-16 w-full items-center justify-between gap-4 border-b px-6">
               <NavLink
                 href={ROUTES.HOME}
                 onClick={onClose}
                 className="flex shrink-0 items-center text-xl"
               >
-                <span className="mr-2 flex h-10 w-10 items-center justify-center border-2 border-brand/80 p-1 text-lg font-extrabold uppercase text-brand">
+                <span className="border-brand/80 text-brand mr-2 flex h-10 w-10 items-center justify-center border-2 p-1 text-lg font-extrabold uppercase">
                   DT
                 </span>
 
@@ -72,7 +72,7 @@ const Sidebar = forwardRef<HTMLDivElement, SidebarProps>(
               <Button
                 onClick={onClose}
                 icon
-                buttonClassName="!bg-transparent !border !border-brand/50 !p-2 hover:!border-brand"
+                buttonClassName="bg-transparent! border! border-brand/50! p-2! hover:border-brand!"
                 aria-label="Close Menu"
               >
                 <AiOutlineClose size={20} />
@@ -89,9 +89,9 @@ const Sidebar = forwardRef<HTMLDivElement, SidebarProps>(
                       <NavLink
                         href={href}
                         className={cn(
-                          "flex items-center justify-between border-l-2 border-transparent py-4 pl-[22px] pr-6 text-lg font-semibold transition-colors duration-200",
+                          "flex items-center justify-between border-l-2 border-transparent py-4 pr-6 pl-[22px] text-lg font-semibold transition-colors duration-200",
                           active
-                            ? "!border-accent text-accent"
+                            ? "border-accent! text-accent"
                             : "text-primary-text hover:text-accent",
                         )}
                         {...(options || {})}
@@ -102,7 +102,7 @@ const Sidebar = forwardRef<HTMLDivElement, SidebarProps>(
                           className={cn(
                             "h-5 w-5 transition-transform duration-200",
                             active
-                              ? "translate-x-0 text-yellow-400"
+                              ? "text-accent translate-x-0"
                               : "text-primary-text/60 group-hover:translate-x-1",
                           )}
                         />
@@ -130,7 +130,7 @@ const Sidebar = forwardRef<HTMLDivElement, SidebarProps>(
 
             <SocialMediaButtons
               className="my-4 w-[220px]"
-              buttonClassName="!bg-transparent !border !border-brand/50 hover:!border-brand"
+              buttonClassName="bg-transparent! border! border-brand/50! hover:border-brand!"
             />
           </div>
         </div>

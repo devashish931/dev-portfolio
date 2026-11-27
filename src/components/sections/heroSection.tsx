@@ -44,7 +44,7 @@ const HeroSection = (props: SectionProps) => {
 
   return (
     <SectionLayout
-      className="mx-auto flex h-full min-h-[min(calc(100vh_-_64px),1200px)] w-full flex-col justify-around gap-8 md:gap-16"
+      className="mx-auto flex h-full min-h-[min(calc(100vh-64px),1200px)] w-full flex-col justify-around gap-8 md:gap-16"
       id={SECTIONS.Hero}
       ref={heroRef}
       {...props}
@@ -53,7 +53,7 @@ const HeroSection = (props: SectionProps) => {
         ref={sentinelRef}
         aria-hidden="true"
         style={{ height: threshold }}
-        className="pointer-events-none absolute left-0 top-0 w-px"
+        className="pointer-events-none absolute top-0 left-0 w-px"
       />
       <div className="sm: relative mt-2 grid grid-cols-1 items-center justify-center gap-8 md:mt-8 md:grid-cols-5 md:gap-16 lg:mt-8">
         <div className="order-2 flex flex-col gap-4 md:order-1 md:col-span-3 md:gap-6">
@@ -64,14 +64,14 @@ const HeroSection = (props: SectionProps) => {
             </Tag>
           )}
           <div className="mb-2">
-            <h1 className="mb-1 flex items-center break-words text-3xl font-semibold text-white sm:mb-2 sm:text-5xl md:mb-4">
+            <h1 className="mb-1 flex items-center text-3xl font-semibold wrap-break-word text-white sm:mb-2 sm:text-5xl md:mb-4">
               {SUBJECT_DATA.fullName}
             </h1>
-            <p className="text-lg font-medium text-accent">
+            <p className="text-accent text-lg font-medium">
               Senior Frontend Developer
             </p>
           </div>
-          <p className="text-pretty text-lg">
+          <p className="text-lg text-pretty">
             5+ years of experience building production-ready web applications
             React, Next.js, and TypeScript. Experienced in designing frontend
             architecture, making technical decisions, optimizing rendering and
@@ -99,12 +99,12 @@ const HeroSection = (props: SectionProps) => {
                 Contact Me
               </Button>
             </div>
-            <SocialMediaButtons buttonClassName="!border-brand/50 !text-brand" />
+            <SocialMediaButtons buttonClassName="border-brand/50! text-brand!" />
           </div>
         </div>
         <div className="order-1 my-8 md:order-2 md:col-span-2">
-          <div className="bevel-clip mx-auto flex w-[400px] max-w-full items-center justify-center bg-brand bg-opacity-20 p-2.5 md:w-fit">
-            <div className="bevel-clip -translate-y-1.5 translate-x-1.5 overflow-hidden bg-background bg-opacity-80">
+          <div className="bevel-clip bg-brand/30 mx-auto flex w-100 max-w-full items-center justify-center p-2.5 md:w-fit">
+            <div className="bevel-clip bg-background/80 translate-x-1.5 -translate-y-1.5 overflow-hidden">
               <Image
                 src={SUBJECT_DATA.image}
                 alt="profile"
@@ -112,7 +112,7 @@ const HeroSection = (props: SectionProps) => {
                 width={600}
                 height={600}
                 priority
-                className="scale-[1.02] drop-shadow-hero"
+                className="drop-shadow-hero scale-[1.02]"
               />
             </div>
           </div>
@@ -122,12 +122,12 @@ const HeroSection = (props: SectionProps) => {
           aria-hidden={true}
           onClick={scrollDown}
           className={cn(
-            "fixed bottom-4 left-[50%] hidden -translate-x-[50%] cursor-pointer transition-opacity duration-300 ease-in-out lg:block xl:absolute xl:-bottom-8",
+            "fixed bottom-4 left-[50%] hidden translate-x-[-50%] cursor-pointer transition-opacity duration-300 ease-in-out lg:block xl:absolute xl:-bottom-8",
             scrollIndicatorVisible ? "opacity-100" : "opacity-0",
           )}
         >
           <span className="flex h-12 animate-bounce flex-col items-center justify-center">
-            <span className="text-sm font-bold text-brand/40">Scroll</span>
+            <span className="text-brand/40 text-sm font-bold">Scroll</span>
             <FiChevronDown className="-mt-1 h-6 w-6 animate-[color-switch_0.8s_linear_infinite]" />
             <FiChevronDown className="-mt-3.5 h-6 w-6 animate-[color-switch_0.8s_linear_infinite_reverse]" />
           </span>

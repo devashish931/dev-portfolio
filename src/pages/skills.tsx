@@ -84,7 +84,7 @@ export default function SkillsPage() {
             as="Link"
             href={ROUTES.PROJECTS}
             variant={"ghost"}
-            buttonClassName="!text-accent"
+            buttonClassName="text-accent!"
             disableHoverStyles
           >
             View projects

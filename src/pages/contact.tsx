@@ -73,7 +73,7 @@ export default function Contact() {
           </div>
 
           {/* Contact form */}
-          <div className="border border-primary/80 bg-gradient-to-br from-primary/5 to-primary/15 p-6 sm:p-8">
+          <div className="border border-primary/80 bg-linear-to-br from-primary/5 to-primary/15 p-6 sm:p-8">
             <Formik
               initialValues={initialValues}
               validationSchema={validationSchema}
@@ -144,7 +144,7 @@ export default function Contact() {
           </div>
         </div>
       </PageLayout>
-      <ToastContainer toastClassName="!bg-elevated !text-primary-text border border-brand/80" />
+      <ToastContainer toastClassName="bg-elevated! text-primary-text! border border-brand/80" />
     </>
   );
 }

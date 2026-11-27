@@ -27,7 +27,7 @@ const SkillSection = (props: SectionProps) => {
       <div className="flex flex-wrap items-center gap-5 py-2">
         {skills.map((item, idx) => (
           <Tag
-            className="!border-brand/70 px-5 py-3 !text-base font-medium tracking-wider !text-primary-text xl:grow"
+            className="border-brand/70! px-5 py-3 text-base! font-medium tracking-wider text-primary-text! xl:grow"
             key={idx}
           >
             {item.name}

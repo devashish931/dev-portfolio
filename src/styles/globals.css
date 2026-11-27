@@ -1,16 +1,64 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+  --animate-bounce-left: bounce-left 1s ease-in-out infinite;
+  --animate-bounce-right: bounce-right 1s ease-in-out infinite;
+
+  --shadow-card: -8px 8px 0;
+
+  --drop-shadow-hero: 0px 30px 30px rgba(137 139 250 / 0.7);
+
+  --color-primary: rgb(99 102 241);
+  --color-primary-text: rgb(180 190 220);
+  --color-brand: rgb(129 140 248);
+  --color-accent: rgb(45 212 191);
+  --color-background: rgb(15 23 42);
+  --color-surface: rgb(30 41 59);
+  --color-elevated: rgb(22 32 50);
+  --color-muted: rgb(148 163 184);
+  --color-subtle: rgb(100 116 139);
+
+  --ease-anticipate: cubic-bezier(1, -0.6, 0.585, 0.965);
+
+  @keyframes bounce-right {
+    0%,
+    100% {
+      transform: translateX(0) rotate(0deg);
+    }
+    30% {
+      transform: translateX(10px) rotate(0deg);
+    }
+  }
+  @keyframes bounce-left {
+    0%,
+    100% {
+      transform: translateX(0) rotate(180deg);
+    }
+    70% {
+      transform: translateX(10px) rotate(180deg);
+    }
+  }
+}
+
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
+  }
+}
+
+@utility container {
+  @apply max-w-[1280px]!;
+}
 
 @layer base {
   body {
     @apply bg-background text-primary-text;
-  }
-}
-
-@layer components {
-  .container {
-    @apply !max-w-[1280px];
   }
 }
 
@@ -29,9 +77,9 @@
 
 @keyframes color-switch {
   from {
-    @apply text-brand/70;
+    color: --alpha(var(--color-brand) / 70%);
   }
   to {
-    @apply text-accent/70;
+    color: --alpha(var(--color-accent) / 70%);
   }
 }
