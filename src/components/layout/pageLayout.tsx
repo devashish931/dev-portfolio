@@ -20,7 +20,7 @@ export default function PageLayout({
   className,
 }: PageLayoutProps) {
   return (
-    <div className={cn("min-h-[calc(100vh-128px)] pb-20", className)}>
+    <div className={cn("min-h-[calc(100vh-160px)] pb-20", className)}>
       <PageHeader
         pretitle={pretitle}
         title={title}

@@ -38,7 +38,7 @@ export default class MyDocument extends Document {
           <script dangerouslySetInnerHTML={{ __html: themeScript }} />
         </Head>
 
-        <body>
+        <body className="page-background">
           <Main />
           <NextScript />
         </body>
