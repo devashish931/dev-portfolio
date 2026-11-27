@@ -3,7 +3,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { SUBJECT_DATA } from "@/config/constants/common";
 import SocialMediaButtons from "../socialMediaButtons";
 import SectionLayout from "../layout/sectionLayout";
-import { ROUTES, SECTIONS } from "@/config/appConfig";
+import { OPEN_TO_WORK, ROUTES, SECTIONS } from "@/config/appConfig";
 import Button from "../ui/button";
 import Tag from "../ui/tag";
 import StatsSection from "./statsSection";
@@ -55,12 +55,14 @@ const HeroSection = (props: SectionProps) => {
         style={{ height: threshold }}
         className="pointer-events-none absolute left-0 top-0 w-px"
       />
-      <div className="relative mt-2 grid grid-cols-1 items-center justify-center gap-8 md:mt-4 md:grid-cols-2 md:gap-16 lg:mt-8">
-        <div className="order-2 flex flex-col gap-4 md:order-1 md:gap-6">
-          <Tag size="sm">
-            <span className="mr-1.5 h-2.5 w-2.5 rounded-full bg-green-500"></span>
-            Open to new opportunities
-          </Tag>
+      <div className="sm: relative mt-2 grid grid-cols-1 items-center justify-center gap-8 md:mt-8 md:grid-cols-5 md:gap-16 lg:mt-8">
+        <div className="order-2 flex flex-col gap-4 md:order-1 md:col-span-3 md:gap-6">
+          {OPEN_TO_WORK && (
+            <Tag size="sm">
+              <span className="mr-1.5 h-2.5 w-2.5 rounded-full bg-green-500"></span>
+              Open to new opportunities
+            </Tag>
+          )}
           <div className="mb-2">
             <h1 className="mb-1 flex items-center break-words text-3xl font-semibold text-white sm:mb-2 sm:text-5xl md:mb-4">
               {SUBJECT_DATA.fullName}
@@ -100,9 +102,9 @@ const HeroSection = (props: SectionProps) => {
             <SocialMediaButtons buttonClassName="!border-brand/50 !text-brand" />
           </div>
         </div>
-        <div className="order-1 my-8 md:order-2">
-          <div className="bevel-clip mx-auto flex w-[400px] max-w-full items-center justify-center bg-brand bg-opacity-20 p-3 md:w-fit">
-            <div className="bevel-clip -translate-y-2 translate-x-2 overflow-hidden bg-background bg-opacity-80">
+        <div className="order-1 my-8 md:order-2 md:col-span-2">
+          <div className="bevel-clip mx-auto flex w-[400px] max-w-full items-center justify-center bg-brand bg-opacity-20 p-2.5 md:w-fit">
+            <div className="bevel-clip -translate-y-1.5 translate-x-1.5 overflow-hidden bg-background bg-opacity-80">
               <Image
                 src={SUBJECT_DATA.image}
                 alt="profile"
@@ -110,7 +112,7 @@ const HeroSection = (props: SectionProps) => {
                 width={600}
                 height={600}
                 priority
-                className="scale-[1.02] brightness-75 drop-shadow-lg"
+                className="scale-[1.02] drop-shadow-hero"
               />
             </div>
           </div>

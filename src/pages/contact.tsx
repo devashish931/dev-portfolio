@@ -2,7 +2,8 @@ import { Form, Formik } from "formik";
 import * as Yup from "yup";
 import React from "react";
 
-import { toast } from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { FiMail, FiPhone, FiLinkedin, FiGithub } from "react-icons/fi";
 import { FaSpinner } from "react-icons/fa";
 
@@ -143,6 +144,7 @@ export default function Contact() {
           </div>
         </div>
       </PageLayout>
+      <ToastContainer toastClassName="!bg-elevated !text-primary-text border border-brand/80" />
     </>
   );
 }

@@ -51,7 +51,7 @@ const ProjectCard = ({ item, titleLevel = 3 }: ProjectCardProps) => {
           </Title>
 
           {shortDescription && (
-            <p className="text-brand-200/80 text-base md:text-lg xl:text-xl">
+            <p className="text-base md:text-lg xl:text-xl">
               {shortDescription}
             </p>
           )}
@@ -62,7 +62,7 @@ const ProjectCard = ({ item, titleLevel = 3 }: ProjectCardProps) => {
             {tags.map((tag) => (
               <li
                 key={tag}
-                className="text-brand-200 border border-brand/30 px-3 py-1 text-xs md:text-lg"
+                className="border border-brand/30 px-3 py-1 text-xs md:text-lg"
               >
                 {tag}
               </li>

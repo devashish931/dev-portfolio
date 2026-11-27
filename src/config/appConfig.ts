@@ -2,6 +2,9 @@ import { IconType } from "react-icons";
 import { SUBJECT_DATA } from "./constants/common";
 import { FiExternalLink } from "react-icons/fi";
 
+export const OPEN_TO_WORK =
+  process.env.NEXT_PUBLIC_OPEN_TO_WORK === "true" || false;
+
 export const SECTIONS = {
   Hero: "#",
   PROJECTS: "#projects",

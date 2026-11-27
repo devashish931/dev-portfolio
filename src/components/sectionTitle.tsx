@@ -47,7 +47,7 @@ const SectionTitle = ({
 
         <Title
           className={cn(
-            "font-display text-brand-50 text-3xl font-bold leading-tight text-white sm:text-4xl md:text-5xl",
+            "font-display text-3xl font-bold leading-tight text-white sm:text-4xl md:text-5xl",
             titleClassName,
           )}
         >

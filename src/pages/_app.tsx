@@ -1,19 +1,12 @@
-import { type Session } from "next-auth";
 import { type AppType } from "next/app";
 import "@/styles/globals.css";
 import { Inter } from "next/font/google";
-import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 import Head from "next/head";
 import MainLayout from "@/components/layout/MainLayout";
-import SEO from "@/components/seo";
 
 const inter = Inter({ subsets: ["latin"] });
 
-const MyApp: AppType<{ session: Session | null }> = ({
-  Component,
-  pageProps,
-}) => {
+const MyApp: AppType<{}> = ({ Component, pageProps }) => {
   return (
     <>
       <main className={inter.className}>
@@ -25,7 +18,6 @@ const MyApp: AppType<{ session: Session | null }> = ({
           <Component {...pageProps} />
         </MainLayout>
       </main>
-      <ToastContainer toastClassName="!bg-elevated !text-primary-text border border-brand/80" />
     </>
   );
 };

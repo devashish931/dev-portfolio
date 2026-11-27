@@ -61,7 +61,7 @@ export default function ExperiencePage() {
                         {experience.technologies.map((technology) => (
                           <span
                             key={technology}
-                            className="text-brand-200 border border-brand/40 px-2.5 py-1 text-xs"
+                            className="border border-brand/40 px-2.5 py-1 text-xs"
                           >
                             {technology}
                           </span>

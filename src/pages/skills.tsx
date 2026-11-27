@@ -53,7 +53,7 @@ export default function SkillsPage() {
                     return (
                       <span
                         key={skill.value}
-                        className="text-brand-200 flex items-center justify-center border border-brand/40 bg-brand/20 px-3 py-2 text-sm"
+                        className="flex items-center justify-center border border-brand/40 bg-brand/20 px-3 py-2 text-sm"
                       >
                         <Image
                           src={skill.value}
@@ -66,7 +66,7 @@ export default function SkillsPage() {
                       </span>
                     );
                   })}
-                  <span className="text-brand-200 flex aspect-square items-center justify-center border border-brand/30 p-3 text-sm">
+                  <span className="flex aspect-square items-center justify-center border border-brand/30 p-3 text-sm">
                     <FiPlus className="h-4 w-4" />
                   </span>
                 </div>
@@ -81,6 +81,7 @@ export default function SkillsPage() {
           </p>
 
           <Button
+            as="Link"
             href={ROUTES.PROJECTS}
             variant={"ghost"}
             buttonClassName="!text-accent"

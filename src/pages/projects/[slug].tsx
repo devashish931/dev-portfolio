@@ -127,7 +127,7 @@ export default function ProjectPage({ project }: { project: ProjectItem }) {
                   {project.technologies.map((tech) => (
                     <span
                       key={tech}
-                      className="text-brand-200 border border-brand/40 bg-brand/20 px-2.5 py-1 text-xs"
+                      className="border border-brand/40 bg-brand/20 px-2.5 py-1 text-xs"
                     >
                       {tech}
                     </span>
@@ -144,7 +144,7 @@ export default function ProjectPage({ project }: { project: ProjectItem }) {
                   {project.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="text-brand-200 border border-brand/40 bg-brand/20 px-2.5 py-1 text-xs"
+                      className="border border-brand/40 bg-brand/20 px-2.5 py-1 text-xs"
                     >
                       {PROJECT_TAGS[tag]}
                     </span>
