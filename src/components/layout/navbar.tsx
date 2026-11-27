@@ -66,8 +66,8 @@ const Navbar = ({ onChange }: NavbarProps) => {
 
   return (
     <nav className="bg-background/20 fixed top-0 left-0 z-60 h-16 w-full shadow-xl backdrop-blur-lg">
-      <div className="w-full px-6 md:px-10 lg:px-12 xl:px-0">
-        <div className="container mx-auto flex h-full w-full items-center justify-between py-3">
+      <div className="w-full">
+        <div className="container mx-auto flex h-full w-full items-center justify-between px-6 py-3 md:px-10 lg:px-12 xl:px-6 2xl:px-0">
           <NavLink
             href={ROUTES.HOME}
             className="flex shrink-0 items-center text-xl"

@@ -24,8 +24,8 @@ const Footer = () => {
   };
 
   return (
-    <footer className="border-brand/20 w-full border-t px-6 md:px-10 lg:px-12 xl:px-0">
-      <div className="container mx-auto flex flex-col gap-5 py-6 sm:flex-row sm:items-center sm:justify-between sm:gap-4 sm:py-7">
+    <footer className="border-brand/20 w-full border-t">
+      <div className="container mx-auto flex flex-col gap-5 px-6 py-6 sm:flex-row sm:items-center sm:justify-between sm:gap-4 sm:py-7 md:px-10 lg:px-12 xl:px-6 2xl:px-0">
         <div className="flex flex-col gap-1">
           <p className="text-primary-text/80 text-sm font-medium">
             {firstName} {lastName}, Frontend Developer
