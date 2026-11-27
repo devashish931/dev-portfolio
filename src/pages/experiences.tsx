@@ -21,7 +21,7 @@ export default function ExperiencePage() {
         <div className="w-full">
           {/* Work experience */}
           <section aria-label="Work experience">
-            <div className="divide-y divide-brand/40 border-y border-brand/40">
+            <div className="divide-brand/40 border-brand/40 divide-y border-y">
               {EXPERIENCES.map((experience, index) => (
                 <article
                   key={`${experience.company}-${experience.position}`}
@@ -29,27 +29,27 @@ export default function ExperiencePage() {
                 >
                   {/* Date and location */}
                   <div className="flex flex-row flex-wrap items-center justify-between gap-x-4 gap-y-1 md:block">
-                    <p className="text-sm font-semibold text-accent">
+                    <p className="text-accent text-sm font-semibold">
                       {experience.startDate} – {experience.endDate}
                     </p>
 
-                    <p className="text-xs text-primary-text/70 md:mt-2">
+                    <p className="text-primary-text/70 text-xs md:mt-2">
                       {experience.location}
                     </p>
                   </div>
 
                   {/* Role details */}
                   <div className="min-w-0">
-                    <h2 className="text-xl font-bold leading-snug text-white sm:text-2xl">
+                    <h2 className="text-xl leading-snug font-bold text-white sm:text-2xl">
                       {experience.position}
                     </h2>
 
-                    <p className="mt-1 font-medium text-primary-text/80">
+                    <p className="text-primary-text/80 mt-1 font-medium">
                       {experience.company}
                     </p>
 
                     {experience.responsibilities?.length ? (
-                      <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-7 text-primary-text/80 sm:text-base">
+                      <ul className="text-primary-text/80 mt-4 list-disc space-y-2 pl-5 text-sm leading-7 sm:text-base">
                         {experience.responsibilities.map((item) => (
                           <li key={item}>{item}</li>
                         ))}
@@ -61,7 +61,7 @@ export default function ExperiencePage() {
                         {experience.technologies.map((technology) => (
                           <span
                             key={technology}
-                            className="border border-brand/40 px-2.5 py-1 text-xs"
+                            className="border-brand/40 border px-2.5 py-1 text-xs"
                           >
                             {technology}
                           </span>
@@ -76,17 +76,17 @@ export default function ExperiencePage() {
 
           {/* Education */}
           <section className="mt-20" aria-label="Education">
-            <p className="mb-5 text-sm font-bold uppercase tracking-[0.12em] text-accent">
+            <p className="text-accent mb-5 text-sm font-bold tracking-[0.12em] uppercase">
               Education
             </p>
 
-            <div className="divide-y divide-brand/40 border-y border-brand/40">
+            <div className="divide-brand/40 border-brand/40 divide-y border-y">
               {EDUCATION.map((education) => (
                 <article
                   key={education.institution}
                   className="grid gap-3 py-7 md:grid-cols-[180px_minmax(0,1fr)] md:gap-8 lg:grid-cols-[220px_minmax(0,1fr)] lg:gap-10"
                 >
-                  <p className="text-sm font-semibold text-accent">
+                  <p className="text-accent text-sm font-semibold">
                     {education.startYear} – {education.endYear}
                   </p>
 
@@ -95,11 +95,11 @@ export default function ExperiencePage() {
                       {education.degree}
                     </h2>
 
-                    <p className="mt-1 text-sm text-primary-text/90 sm:text-base">
+                    <p className="text-primary-text/90 mt-1 text-sm sm:text-base">
                       {education.institution}
                     </p>
 
-                    <p className="mt-1 text-sm text-primary-text/70">
+                    <p className="text-primary-text/70 mt-1 text-sm">
                       {education.field}
                     </p>
                   </div>
@@ -114,8 +114,7 @@ export default function ExperiencePage() {
               as="Link"
               href={ROUTES.CONTACT}
               variant="solid-accent"
-              className="w-full sm:w-fit"
-              buttonClassName="min-h-11 w-full justify-center px-6 font-semibold sm:w-auto"
+              className="min-h-11 w-full justify-center px-6 font-semibold sm:w-fit"
             >
               Work with me
               <FiArrowRight className="ml-2" />
@@ -128,8 +127,7 @@ export default function ExperiencePage() {
               target="_blank"
               rel="noopener noreferrer"
               variant="bordered-primary"
-              className="w-full sm:w-fit"
-              buttonClassName="min-h-11 w-full justify-center px-6 font-semibold sm:w-auto"
+              className="min-h-11 w-full justify-center px-6 font-semibold sm:w-fit"
             >
               Download resume
               <FiDownload className="ml-2" />

@@ -34,7 +34,7 @@ const SocialMediaButtons = ({
         target="_blank"
         rel="noreferrer"
         icon
-        buttonClassName={buttonClassName}
+        className={buttonClassName}
         aria-label="Open my github account"
       >
         <FiGithub />
@@ -45,7 +45,7 @@ const SocialMediaButtons = ({
         target="_blank"
         rel="noreferrer"
         icon
-        buttonClassName={buttonClassName}
+        className={buttonClassName}
         aria-label="Open my linkedin profile"
       >
         <FiLinkedin />
@@ -53,7 +53,7 @@ const SocialMediaButtons = ({
       <Button
         icon
         onClick={() => (window.location.href = `mailto:${email}`)}
-        buttonClassName={buttonClassName}
+        className={buttonClassName}
         aria-label="Send me an e-mail"
       >
         <FiMail />

@@ -32,8 +32,7 @@ export default function PageHeader({
         onClick={handleBack}
         variant="ghost"
         disableHoverStyles
-        className="mb-6 mt-1 h-9 -translate-x-4"
-        buttonClassName="text-primary-text/80"
+        className="text-primary-text/80 mt-1 mb-6 h-9 -translate-x-4"
       >
         <FiArrowLeft className="mr-1 h-5 w-5" />
         Back

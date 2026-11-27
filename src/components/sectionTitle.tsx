@@ -37,7 +37,7 @@ const SectionTitle = ({
         {pretitle && (
           <p
             className={cn(
-              "mb-3 text-sm font-bold uppercase tracking-[0.12em] text-accent md:text-base lg:text-lg",
+              "text-accent mb-3 text-sm font-bold tracking-[0.12em] uppercase md:text-base lg:text-lg",
               pretitleClassName,
             )}
           >
@@ -47,7 +47,7 @@ const SectionTitle = ({
 
         <Title
           className={cn(
-            "font-display text-3xl font-bold leading-tight text-white sm:text-4xl md:text-5xl",
+            "font-display text-3xl leading-tight font-bold text-white sm:text-4xl md:text-5xl",
             titleClassName,
           )}
         >
@@ -58,7 +58,7 @@ const SectionTitle = ({
       {href && (
         <Link
           href={href}
-          className="group inline-flex shrink-0 items-center font-semibold text-accent transition-colors hover:text-accent/90"
+          className="group text-accent hover:text-accent/90 inline-flex shrink-0 items-center font-semibold transition-colors"
         >
           {linkText || "See all"}
           <FiArrowRight className="ml-1 transition-transform duration-300 ease-in-out group-hover:translate-x-2" />

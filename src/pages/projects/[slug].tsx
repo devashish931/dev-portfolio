@@ -50,12 +50,12 @@ export default function ProjectPage({ project }: { project: ProjectItem }) {
         image={project.image.hero}
       />
       <PageLayout pretitle={project.category} title={project.title}>
-        <p className="mb-7 max-w-2xl text-lg leading-relaxed text-primary-text/80 md:text-xl">
+        <p className="text-primary-text/80 mb-7 max-w-2xl text-lg leading-relaxed md:text-xl">
           {project.shortDescription}
         </p>
 
         <div className="mb-8 grid grid-cols-1 gap-6 lg:grid-cols-4 lg:gap-12">
-          <div className="relative col-span-1 aspect-[1.91/1] overflow-hidden border border-brand/30 bg-brand/10 lg:col-span-3">
+          <div className="border-brand/30 bg-brand/10 relative col-span-1 aspect-[1.91/1] overflow-hidden border lg:col-span-3">
             <Image
               src={project.image.hero}
               alt={`${project.title} project preview`}
@@ -65,7 +65,7 @@ export default function ProjectPage({ project }: { project: ProjectItem }) {
               className="object-cover object-top"
             />
           </div>
-          <div className="col-span-1 mb-16 grid grid-cols-1 border border-brand/30 bg-brand/10 md:grid-cols-4 lg:h-full lg:grid-cols-1">
+          <div className="border-brand/30 bg-brand/10 col-span-1 mb-16 grid grid-cols-1 border md:grid-cols-4 lg:h-full lg:grid-cols-1">
             <MetadataItem label="Role" value={project.role} />
             <MetadataItem label="Year" value={project.year} />
             <MetadataItem label="Team" value={project.team} />
@@ -106,7 +106,7 @@ export default function ProjectPage({ project }: { project: ProjectItem }) {
                   <ul className="space-y-3">
                     {project.responsibilities.map((item, index) => (
                       <li key={index} className="flex gap-3">
-                        <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-accent" />
+                        <span className="bg-accent mt-2 h-2 w-2 shrink-0 rounded-full" />
                         <span>{item}</span>
                       </li>
                     ))}
@@ -118,7 +118,7 @@ export default function ProjectPage({ project }: { project: ProjectItem }) {
 
           <aside className="cols-span-1 space-y-5 lg:self-start">
             {project.technologies?.length ? (
-              <section className="border border-brand/30 bg-brand/10 p-5">
+              <section className="border-brand/30 bg-brand/10 border p-5">
                 <h2 className="mb-4 text-lg font-semibold text-white">
                   Tech stack
                 </h2>
@@ -127,7 +127,7 @@ export default function ProjectPage({ project }: { project: ProjectItem }) {
                   {project.technologies.map((tech) => (
                     <span
                       key={tech}
-                      className="border border-brand/40 bg-brand/20 px-2.5 py-1 text-xs"
+                      className="border-brand/40 bg-brand/20 border px-2.5 py-1 text-xs"
                     >
                       {tech}
                     </span>
@@ -137,14 +137,14 @@ export default function ProjectPage({ project }: { project: ProjectItem }) {
             ) : null}
 
             {project.tags?.length ? (
-              <section className="border border-brand/30 bg-brand/10 p-5">
+              <section className="border-brand/30 bg-brand/10 border p-5">
                 <h2 className="mb-4 text-lg font-semibold text-white">Tags</h2>
 
                 <div className="flex flex-wrap gap-2">
                   {project.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="border border-brand/40 bg-brand/20 px-2.5 py-1 text-xs"
+                      className="border-brand/40 bg-brand/20 border px-2.5 py-1 text-xs"
                     >
                       {PROJECT_TAGS[tag]}
                     </span>
@@ -159,8 +159,7 @@ export default function ProjectPage({ project }: { project: ProjectItem }) {
               target="_blank"
               rel="noopener noreferrer"
               variant="solid-accent"
-              className="w-full"
-              buttonClassName="min-h-11 w-full justify-center font-semibold text-black"
+              className="min-h-11 w-full justify-center font-semibold text-black"
             >
               Visit live site
               <FiExternalLink className="ml-2" />
@@ -173,10 +172,10 @@ export default function ProjectPage({ project }: { project: ProjectItem }) {
             <Link
               replace
               href={`/projects/${nextProject.slug}`}
-              className="group flex items-center justify-between border border-brand/30 bg-brand/10 p-5 transition-colors hover:border-accent/60 hover:bg-brand/20 sm:p-7"
+              className="group border-brand/30 bg-brand/10 hover:border-accent/60 hover:bg-brand/20 flex items-center justify-between border p-5 transition-colors sm:p-7"
             >
               <div>
-                <p className="mb-2 text-sm text-primary-text/70">
+                <p className="text-primary-text/70 mb-2 text-sm">
                   Next project
                 </p>
 
@@ -185,7 +184,7 @@ export default function ProjectPage({ project }: { project: ProjectItem }) {
                 </h2>
               </div>
 
-              <FiArrowRight className="h-6 w-6 text-accent transition-transform group-hover:translate-x-2" />
+              <FiArrowRight className="text-accent h-6 w-6 transition-transform group-hover:translate-x-2" />
             </Link>
           </section>
         )}
@@ -196,10 +195,10 @@ export default function ProjectPage({ project }: { project: ProjectItem }) {
 
 function MetadataItem({ label, value }: { label: string; value: string }) {
   return (
-    <div className="min-w-0 border-b border-brand/30 p-4 last:border-b-0 md:border-r md:last:border-r-0 lg:border-b lg:last:border-b-0">
-      <p className="mb-1 text-xs text-primary-text/60">{label}</p>
+    <div className="border-brand/30 min-w-0 border-b p-4 last:border-b-0 md:border-r md:last:border-r-0 lg:border-b lg:last:border-b-0">
+      <p className="text-primary-text/60 mb-1 text-xs">{label}</p>
 
-      <p className="truncate text-sm font-semibold capitalize text-white">
+      <p className="truncate text-sm font-semibold text-white capitalize">
         {value}
       </p>
     </div>
@@ -225,7 +224,7 @@ function ContentSection({
         {title}
       </SectionTitle>
 
-      <div className="space-y-4 text-base leading-7 text-primary-text/80">
+      <div className="text-primary-text/80 space-y-4 text-base leading-7">
         {children}
       </div>
     </section>

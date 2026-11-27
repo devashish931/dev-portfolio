@@ -71,7 +71,7 @@ const Sidebar = forwardRef<HTMLDivElement, SidebarProps>(
               <Button
                 onClick={onClose}
                 icon
-                buttonClassName="bg-transparent! border! border-brand/50! p-2! hover:border-brand!"
+                className="border-brand/50! hover:border-brand! border! bg-transparent! p-2!"
                 aria-label="Close Menu"
               >
                 <AiOutlineClose size={20} />
@@ -119,19 +119,14 @@ const Sidebar = forwardRef<HTMLDivElement, SidebarProps>(
               as="Link"
               href={SUBJECT_DATA.resume}
               variant="solid-accent"
-              className="w-full"
-              buttonClassName="h-14 w-full justify-center text-base font-bold text-black"
-              download
+              className="h-14 w-full justify-center text-base font-bold text-black"
               target="_blank"
               rel="noreferrer"
             >
               Download resume
             </Button>
 
-            <SocialMediaButtons
-              className="my-4 w-55"
-              buttonClassName="bg-transparent! border! border-brand/50! hover:border-brand!"
-            />
+            <SocialMediaButtons className="border-brand/50! hover:border-brand! my-4 w-55 border! bg-transparent!" />
           </div>
         </div>
       </div>

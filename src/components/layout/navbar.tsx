@@ -88,7 +88,7 @@ const Navbar = ({ onChange }: NavbarProps) => {
                   as="Link"
                   variant={"ghost"}
                   href={href}
-                  buttonClassName={cn(
+                  className={cn(
                     "flex h-8 items-center px-2! text-xs lg:text-sm",
                     "hover:text-accent",
                     {
@@ -110,10 +110,9 @@ const Navbar = ({ onChange }: NavbarProps) => {
               <Button
                 as="a"
                 href={SUBJECT_DATA.resume}
-                variant="bordered-ghost-primary"
+                variant="bordered-accent"
                 disableHoverStyles
-                buttonClassName="flex h-8 ml-2 items-center px-2! text-xs lg:text-sm"
-                download
+                className="ml-2 flex h-8 items-center px-2! text-xs lg:text-sm"
                 target="_blank"
                 rel="noreferrer"
               >
@@ -125,8 +124,8 @@ const Navbar = ({ onChange }: NavbarProps) => {
           <Button
             icon
             onClick={() => setNav(true)}
-            buttonClassName="bg-transparent p-1.5! border-none"
-            className="cursor-pointer bg-transparent md:hidden"
+
+            className="cursor-pointer border-none bg-transparent p-1.5! md:hidden"
             aria-label="Open Navigation"
             aria-expanded={nav}
           >

@@ -15,7 +15,7 @@ export const PROJECTS: ProjectItem[] = [
     },
     category: "web-application",
     shortDescription:
-      "A poker platform providing players with an online gaming experience.",
+      "Built a shared authentication module and cross-application communication layer to connect multiple micro-frontends.",
     description:
       "WPT Play is an online poker platform associated with the World Poker Tour brand. It provides a player-facing web experience for accessing poker games and related platform services.",
     role: "Senior Lead - Frontend Development",
@@ -45,7 +45,8 @@ export const PROJECTS: ProjectItem[] = [
       hero: `${projectHeroImagesFolderPath}/wpt.webp`,
     },
     category: "content-platform",
-    shortDescription: "The official website of the World Poker Tour.",
+    shortDescription:
+      "Led the migration to Next.js, developed reusable page structures, integrated Strapi content, and improved loading performance.",
     description:
       "The official World Poker Tour website provides information about poker tournaments, events, players, news, and other WPT-related content. It serves as a central destination for visitors to explore the brand and its activities.",
     role: "Senior Associate Consultant",
@@ -70,7 +71,7 @@ export const PROJECTS: ProjectItem[] = [
     },
     category: "content-platform",
     shortDescription:
-      "An education platform offering career and college guidance.",
+      "Migrated a legacy PHP frontend to Next.js, defining its architecture and rendering strategy while improving performance by around 25%.",
     description:
       "An education and career guidance platform that helps students explore colleges, courses, and education-related information. It brings together resources to support students in making informed academic and career decisions.",
     role: "Web Developer",
@@ -93,7 +94,8 @@ export const PROJECTS: ProjectItem[] = [
       hero: `${projectHeroImagesFolderPath}/soshNft.webp`,
     },
     category: "marketplace",
-    shortDescription: "An NFT-focused digital platform.",
+    shortDescription:
+      "Improved the existing application's UI and UX, completed key frontend features, and integrated backend APIs and blockchain services.",
     description:
       "A digital platform focused on NFTs associated to social media content, providing a web interface for users to generate, buy, sell NFT content (Thier own social media content).",
     role: "Senior Associate Consultant",
@@ -117,7 +119,7 @@ export const PROJECTS: ProjectItem[] = [
     },
     category: "web-application",
     shortDescription:
-      "A configurable casino lobby displaying games, banners, and dynamic content.",
+      "Developed a widget-based lobby architecture, integrated embedded application communication, and optimized API data handling.",
     description:
       "A casino lobby experience built to display dynamically configured content across different regions, locales, and devices. The frontend integrates with a custom Strapi-based CMS that allows content managers to configure lobby layouts using reusable blocks, games, and banners.",
     role: "Senior Associated Consultant",
@@ -141,7 +143,7 @@ export const PROJECTS: ProjectItem[] = [
     },
     category: "cms",
     shortDescription:
-      "A CMS for managing casino content, games, banners, game-banners etc. and Plugin to generate lobbies",
+      "Built a drag-and-drop lobby builder with collection editing, localization workflows, bulk operations, and role-based access control.",
     description:
       "A customized Strapi CMS solution designed to simplify casino lobby creation and management. It provides a visual builder that allows content managers to create and update lobbies for different regions, locales, and devices by arranging reusable blocks, games, and banners through drag-and-drop interactions.",
     role: "Senior Associate Consultant",
@@ -173,7 +175,8 @@ export const PROJECTS: ProjectItem[] = [
       hero: `${projectHeroImagesFolderPath}/wptGlobal.webp`,
     },
     category: "web-application",
-    shortDescription: "The official user-facing web platform of WPT Global.",
+    shortDescription:
+      "Built reusable frontend components, integrated analytics, and developed an internal tool to validate translation files.",
     description:
       "WPT Global is an online poker platform associated with the World Poker Tour brand. Its website provides users with information about the platform, poker offerings, promotions, and related services.",
     role: "Senior Lead - Frontend Development",
@@ -199,7 +202,7 @@ export const PROJECTS: ProjectItem[] = [
     },
     category: "cms",
     shortDescription:
-      "A customized Strapi CMS for managing WPT Global website content.",
+      "Extended Strapi with custom content collections, locale duplication plugins, and application-specific API logic and validation.",
     description:
       "A Strapi-based CMS solution customized to support WPT Global's content management requirements. The project involved extending the CMS with custom content types, fields, business logic, validation, and plugins while improving API efficiency, security, and the content management experience.",
     role: "Senior Lead - Frontend Development",
@@ -223,7 +226,7 @@ export const PROJECTS: ProjectItem[] = [
     },
     category: "promotional-platform",
     shortDescription:
-      "A promotional platform for presenting WPT Global campaigns and offers.",
+      "Developed a reusable widget-based page architecture and migrated the application from Vue.js to Next.js.",
     description:
       "A dedicated promotional web experience for WPT Global, built to present campaigns, offers, and marketing content through campaign-focused pages.",
     role: "Senior Associate Consultant",
@@ -247,7 +250,7 @@ export const PROJECTS: ProjectItem[] = [
     },
     category: "cms",
     shortDescription:
-      "A customized Strapi CMS for managing World Poker Tour website content.",
+      "Customized Strapi content models and integrated CMS data with the frontend to support website content requirements.",
     description:
       "A Strapi-based content management solution configured to support the World Poker Tour website. The CMS was customized around frontend requirements to help content managers maintain and update website information.",
     role: "Senior Associate Consultant",
@@ -271,7 +274,7 @@ export const PROJECTS: ProjectItem[] = [
     },
     category: "personal-project",
     shortDescription:
-      "A personal portfolio showcasing my frontend development experience and projects.",
+      "Designed and developed my portfolio with reusable components, responsive layouts, and structured project and experience data.",
     description:
       "A personal portfolio website built to showcase my professional experience, selected projects, technical skills, and frontend development work. It focuses on reusable components, responsive layouts, and clear presentation of project information.",
     role: "Senior Frontend Developer",
@@ -296,7 +299,7 @@ export const PROJECTS: ProjectItem[] = [
     },
     category: "web-application",
     shortDescription:
-      "A live data intelligence platform that captures and analyzes customer interactions at events.",
+      "Developed and maintained the marketing website, translating designs into responsive layouts and interactive frontend components.",
     description:
       "DISTINCT helps brands collect customer interaction data from live events, gain insights, and deliver personalized experiences through integrated CRM and marketing platforms.",
     role: "Associate Consultant",
@@ -320,7 +323,7 @@ export const PROJECTS: ProjectItem[] = [
     },
     category: "admin-dashboard",
     shortDescription:
-      "An administration dashboard for managing a game avatar marketplace.",
+      "Developed admin workflows for avatar management, user administration, CMS features, role-based access, and dashboard forms.",
     description:
       "A centralized administration dashboard for managing the operational aspects of a game avatar marketplace. It provides tools for avatar generation, manual assignment, user management, 3D NFT management, role-based access control, and content management.",
     role: "Associate Consultant",
@@ -351,7 +354,8 @@ export const PROJECTS: ProjectItem[] = [
       hero: `${projectHeroImagesFolderPath}/momentNft.webp`,
     },
     category: "marketplace",
-    shortDescription: "An NFT auction platform for digital collectibles.",
+    shortDescription:
+      "Developed core NFT auction workflows, reusable UI components, responsive layouts, and backend API integrations.",
     description:
       "A digital platform centered around NFT auctions, providing an experience for users to explore digital collectibles and participate in auction-related activities.",
     role: "Associate Consultant",

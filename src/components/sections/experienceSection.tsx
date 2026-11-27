@@ -9,17 +9,16 @@ const ExperienceSection = (props: SectionProps) => {
   return (
     <SectionLayout
       titleProps={{
-        pretitle: "Experience",
         linkText: "Full Experience",
         href: ROUTES.EXPERIENCES,
       }}
-      title="Current Role"
+      title="Where I've Worked"
       id={SECTIONS.EXPERIENCE}
       {...props}
     >
-      <div className="flex flex-wrap gap-4 border-y border-primary/70 py-8 md:flex-nowrap md:gap-8 md:py-10 lg:py-12">
+      <div className="border-primary/70 flex flex-wrap gap-4 border-y py-8 md:flex-nowrap md:gap-8 md:py-10 lg:py-12">
         <div className="shrink-0">
-          <p className="font-bold text-accent">
+          <p className="text-accent font-bold">
             {experience?.startDate} - {experience?.endDate || "present"}
           </p>
         </div>

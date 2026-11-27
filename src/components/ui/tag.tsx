@@ -5,15 +5,15 @@ import React from "react";
 const tagVariants = cva(
   [
     "inline-flex w-fit items-center justify-center",
-    "bg-brand/10 text-muted text-sm",
-    "border border-brand/70",
+    "border border-brand/70 bg-brand/10",
+    "font-mono tracking-wide text-primary-text/90",
   ],
   {
     variants: {
       size: {
-        sm: "px-3 py-1",
-        default: "px-4 py-2",
-        lg: "px-5 py-3",
+        sm: "px-2 py-1 text-[9px] sm:text-[10px]",
+        default: "px-2.5 py-1.5 text-[10px] sm:px-3 sm:text-xs",
+        lg: "px-3 py-1.5 text-xs sm:px-4 sm:py-2 sm:text-sm",
       },
     },
     defaultVariants: {
@@ -22,32 +22,32 @@ const tagVariants = cva(
   },
 );
 
-interface ButtonProps extends VariantProps<typeof tagVariants> {
-  children: React.ReactNode;
-  className?: string;
+interface TagProps
+  extends VariantProps<typeof tagVariants>, React.HTMLAttributes<HTMLElement> {
+  as?: React.ElementType;
   disabled?: boolean;
 }
 
-const Tag: React.FC<ButtonProps> = ({
+const Tag = ({
   children,
   className,
-  disabled,
+  disabled = false,
   size,
+  as: Component = "span",
   ...props
-}) => {
+}: TagProps) => {
   return (
-    <div
+    <Component
       className={cn(
-        tagVariants({
-          size,
-        }),
-        disabled ? "opacity-60" : "",
+        tagVariants({ size }),
+        disabled && "pointer-events-none opacity-50",
         className,
       )}
+      aria-disabled={disabled || undefined}
       {...props}
     >
       {children}
-    </div>
+    </Component>
   );
 };
 

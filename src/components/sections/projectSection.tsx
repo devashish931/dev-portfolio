@@ -5,13 +5,13 @@ import { ROUTES, SECTIONS } from "@/config/appConfig";
 import Link from "next/link";
 import { PROJECTS } from "@/config/constants/projects";
 import { SectionProps } from "@/types/common";
+import cn from "@/lib/utils";
 
 const ProjectSection = (props: SectionProps) => {
-  const projects = useMemo(() => PROJECTS.slice(0, 4), []);
+  const projects = useMemo(() => PROJECTS.slice(0, 6), []);
   return (
     <SectionLayout
       titleProps={{
-        pretitle: "Selected Work",
         linkText: "See All Projects",
         href: ROUTES.PROJECTS,
       }}
@@ -19,11 +19,16 @@ const ProjectSection = (props: SectionProps) => {
       id={SECTIONS.PROJECTS}
       {...props}
     >
-      <div className="grid w-full grid-cols-1 place-items-center gap-6 pb-2 text-lg sm:grid-cols-2 md:grid-cols-1">
-        {projects.map((item) => (
+      <div className="grid w-full grid-cols-1 place-items-center gap-6 pb-2 text-lg sm:grid-cols-2 lg:grid-cols-3">
+        {projects.map((item, index) => (
           <Link
             key={item.slug}
-            className="h-full w-full"
+            className={cn(
+              "h-full w-full",
+              index >= 3 && "hidden sm:block",
+              index >= 4 && "sm:hidden lg:block",
+              index >= 6 && "lg:hidden xl:block",
+            )}
             href={`/projects/${item.slug}`}
           >
             <ProjectCard item={item} />

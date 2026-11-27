@@ -48,7 +48,7 @@ export function ThemeSelector({ className }: ThemeSelectorProps) {
             <Button
               variant="ghost"
               aria-label="Choose color theme"
-              buttonClassName="p-2!"
+              className="p-2!"
             >
               <LuPalette style={{ color: active.primary }} className="size-5" />
             </Button>

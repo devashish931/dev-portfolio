@@ -14,7 +14,7 @@ export default function ProjectsPage() {
         title="All projects"
         description="A selection of production projects I've worked on, covering frontend applications, CMS platforms and digital experiences."
       >
-        <div className="grid w-full grid-cols-1 flex-col gap-6 sm:grid-cols-2 md:grid-cols-1">
+        <div className="grid w-full grid-cols-1 flex-col gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {PROJECTS.map((project) => (
             <Link
               key={project.slug}

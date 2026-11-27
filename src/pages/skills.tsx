@@ -36,13 +36,13 @@ export default function SkillsPage() {
             return (
               <section
                 key={category.name}
-                className="border border-brand/30 bg-brand/10 p-5 sm:p-6"
+                className="border-brand/30 bg-brand/10 border p-5 sm:p-6"
               >
                 <h2 className="text-xl font-semibold text-white">
                   {category.name}
                 </h2>
 
-                <p className="mt-2 text-sm text-primary-text/70">
+                <p className="text-primary-text/70 mt-2 text-sm">
                   {category.description}
                 </p>
 
@@ -53,7 +53,7 @@ export default function SkillsPage() {
                     return (
                       <span
                         key={skill.value}
-                        className="flex items-center justify-center border border-brand/40 bg-brand/20 px-3 py-2 text-sm"
+                        className="border-brand/40 bg-brand/10 flex items-center justify-center border px-3 py-2 text-sm"
                       >
                         <Image
                           src={skill.value}
@@ -66,7 +66,7 @@ export default function SkillsPage() {
                       </span>
                     );
                   })}
-                  <span className="flex aspect-square items-center justify-center border border-brand/30 p-3 text-sm">
+                  <span className="border-brand/30 flex aspect-square items-center justify-center border p-3 text-sm">
                     <FiPlus className="h-4 w-4" />
                   </span>
                 </div>
@@ -75,8 +75,8 @@ export default function SkillsPage() {
           })}
         </div>
 
-        <div className="mt-10 flex flex-wrap items-center justify-between gap-4 border border-dashed border-brand/30 p-5 sm:p-6">
-          <p className="text-sm text-primary-text/80">
+        <div className="border-brand/30 mt-10 flex flex-wrap items-center justify-between gap-4 border border-dashed p-5 sm:p-6">
+          <p className="text-primary-text/80 text-sm">
             See these tools in real projects.
           </p>
 
@@ -84,7 +84,7 @@ export default function SkillsPage() {
             as="Link"
             href={ROUTES.PROJECTS}
             variant={"ghost"}
-            buttonClassName="text-accent!"
+            className="text-accent!"
             disableHoverStyles
           >
             View projects

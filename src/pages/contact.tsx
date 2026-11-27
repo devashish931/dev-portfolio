@@ -73,7 +73,7 @@ export default function Contact() {
           </div>
 
           {/* Contact form */}
-          <div className="border border-primary/80 bg-linear-to-br from-primary/5 to-primary/15 p-6 sm:p-8">
+          <div className="border-primary/80 from-primary/5 to-primary/15 border bg-linear-to-br p-6 sm:p-8">
             <Formik
               initialValues={initialValues}
               validationSchema={validationSchema}
@@ -122,8 +122,7 @@ export default function Contact() {
                     type="submit"
                     disabled={isSubmitting}
                     variant="solid-accent"
-                    className="w-full"
-                    buttonClassName="min-h-12 w-full justify-center font-semibold"
+                    className="min-h-12 w-full justify-center font-semibold"
                   >
                     {isSubmitting ? (
                       <>
@@ -135,7 +134,7 @@ export default function Contact() {
                     )}
                   </Button>
 
-                  <p className="text-sm text-primary-text/70">
+                  <p className="text-primary-text/70 text-sm">
                     I usually reply within a day.
                   </p>
                 </Form>

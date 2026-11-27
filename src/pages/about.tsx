@@ -45,7 +45,7 @@ export default function AboutPage() {
       >
         {/* Introduction */}
         <section className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_320px] lg:items-start lg:gap-16">
-          <div className="max-w-2xl space-y-5 text-base leading-7 text-primary-text/80">
+          <div className="text-primary-text/80 max-w-2xl space-y-5 text-base leading-7">
             <p>
               I am a Senior Frontend Developer with 5+ years of experience
               building scalable web applications with React, Next.js, TypeScript
@@ -71,9 +71,8 @@ export default function AboutPage() {
                 as="Link"
                 href={ROUTES.CONTACT}
                 variant="solid-accent"
-                className="w-full sm:w-fit"
+                className="min-h-11 w-full justify-center px-6 font-semibold sm:w-fit"
                 disableHoverStyles
-                buttonClassName="min-h-11 w-full justify-center px-6 font-semibold sm:w-auto"
               >
                 Contact me
                 <FiArrowRight className="ml-2 transition-transform duration-300 ease-in-out group-hover:translate-x-2" />
@@ -83,8 +82,7 @@ export default function AboutPage() {
                 as="Link"
                 href={ROUTES.EXPERIENCES}
                 variant="bordered-primary"
-                className="w-full sm:w-fit"
-                buttonClassName="min-h-11 w-full justify-center px-6 font-semibold sm:w-auto"
+                className="min-h-11 w-full justify-center px-6 font-semibold sm:w-fit"
               >
                 See experience
               </Button>
@@ -92,13 +90,13 @@ export default function AboutPage() {
           </div>
 
           {/* Profile details instead of repeating homepage photo */}
-          <aside className="h-fit border border-brand/40 bg-primary/10">
+          <aside className="border-brand/40 bg-primary/10 h-fit border">
             {PROFILE_DETAILS.map((detail) => (
               <div
                 key={detail.label}
-                className="flex flex-wrap items-center justify-between gap-3 border-b border-brand/30 px-4 py-4 last:border-b-0 sm:px-5"
+                className="border-brand/30 flex flex-wrap items-center justify-between gap-3 border-b px-4 py-4 last:border-b-0 sm:px-5"
               >
-                <span className="text-sm text-primary-text/90">
+                <span className="text-primary-text/90 text-sm">
                   {detail.label}
                 </span>
                 <span className="text-right text-sm font-semibold text-white">
@@ -112,7 +110,7 @@ export default function AboutPage() {
         {/* Working principles */}
         <section className="mt-20">
           <div className="mb-8">
-            <p className="mb-3 text-sm font-bold uppercase tracking-[0.12em] text-accent">
+            <p className="text-accent mb-3 text-sm font-bold tracking-[0.12em] uppercase">
               How I work
             </p>
 
@@ -125,9 +123,9 @@ export default function AboutPage() {
             {PRINCIPLES.map((principle) => (
               <article
                 key={principle.number}
-                className="border border-brand/40 bg-primary/10 p-5 sm:p-6"
+                className="border-brand/40 bg-primary/10 border p-5 sm:p-6"
               >
-                <span className="text-2xl font-bold text-accent">
+                <span className="text-accent text-2xl font-bold">
                   {principle.number}
                 </span>
 
@@ -135,7 +133,7 @@ export default function AboutPage() {
                   {principle.title}
                 </h3>
 
-                <p className="mt-2 text-sm leading-6 text-primary-text/75">
+                <p className="text-primary-text/75 mt-2 text-sm leading-6">
                   {principle.description}
                 </p>
               </article>

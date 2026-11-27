@@ -21,6 +21,8 @@
 
   --muted: rgb(148 163 184);
   --subtle: rgb(100 116 139);
+
+  --image-tint: rgb(99 102 241);
 }
 
 /* Royal Violet + Soft Coral */
@@ -30,12 +32,14 @@
   --brand: rgb(167 139 250);
   --accent: rgb(251 113 133);
 
-  --background: rgb(24 18 37);
-  --surface: rgb(41 32 57);
-  --elevated: rgb(33 25 48);
+  --background: rgb(17 17 19);
+  --surface: rgb(27 27 30);
+  --elevated: rgb(35 35 39);
 
   --muted: rgb(196 181 212);
   --subtle: rgb(148 130 168);
+
+  --image-tint: rgb(139 92 246);
 }
 
 /* Emerald + Champagne */
@@ -45,12 +49,14 @@
   --brand: rgb(52 211 153);
   --accent: rgb(214 183 121);
 
-  --background: rgb(16 28 25);
-  --surface: rgb(27 42 37);
-  --elevated: rgb(21 35 30);
+  --background: rgb(17 17 19);
+  --surface: rgb(27 27 30);
+  --elevated: rgb(35 35 39);
 
   --muted: rgb(163 190 175);
   --subtle: rgb(120 150 133);
+
+  --image-tint: rgb(16 185 129);
 }
 
 /* Cobalt + Electric Lime */
@@ -60,27 +66,31 @@
   --brand: rgb(96 165 250);
   --accent: rgb(190 242 100);
 
-  --background: rgb(16 24 39);
-  --surface: rgb(30 41 59);
-  --elevated: rgb(22 32 48);
+  --background: rgb(17 17 19);
+  --surface: rgb(27 27 30);
+  --elevated: rgb(35 35 39);
 
   --muted: rgb(156 176 203);
   --subtle: rgb(112 132 160);
+
+  --image-tint: rgb(37 99 235);
 }
 
 /* Warm Graphite + Burnt Orange */
 [data-theme="graphite"] {
-  --primary: rgb(234 88 12);
-  --primary-text: rgb(214 198 185);
-  --brand: rgb(249 115 22);
-  --accent: rgb(234 184 138);
+  --primary: rgb(190 103 65);
+  --primary-text: rgb(218 207 195);
+  --brand: rgb(202 119 76);
+  --accent: rgb(190 157 128);
 
-  --background: rgb(23 23 23);
-  --surface: rgb(41 37 36);
-  --elevated: rgb(32 29 28);
+  --background: rgb(17 17 19);
+  --surface: rgb(27 27 30);
+  --elevated: rgb(35 35 39);
 
-  --muted: rgb(189 177 166);
-  --subtle: rgb(140 130 120);
+  --muted: rgb(174 166 156);
+  --subtle: rgb(130 125 117);
+
+  --image-tint: rgb(145 91 65);
 }
 
 /* ========================================
@@ -106,6 +116,8 @@
 
   --color-muted: var(--muted);
   --color-subtle: var(--subtle);
+
+  --color-image-tint: var(--image-tint);
 
   --ease-anticipate: cubic-bezier(1, -0.6, 0.585, 0.965);
 
@@ -163,7 +175,7 @@
 ======================================== */
 
 @utility container {
-  @apply max-w-[1280px]!;
+  @apply max-w-7xl!;
 }
 
 .bevel-clip {

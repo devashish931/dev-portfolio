@@ -30,7 +30,7 @@ export function FormField({
         as={as}
         rows={as === "textarea" ? 5 : undefined}
         placeholder={placeholder}
-        className="w-full border border-brand/40 bg-background/40 px-4 py-3 text-white outline-hidden transition-colors placeholder:text-primary-text/60 focus:border-accent"
+        className="border-brand/40 bg-background/40 placeholder:text-primary-text/60 focus:border-accent w-full border px-4 py-3 text-white outline-hidden transition-colors"
       />
 
       {error && touched && (

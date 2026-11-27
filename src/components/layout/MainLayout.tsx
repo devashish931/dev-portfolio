@@ -25,7 +25,7 @@ export default function MainLayout({ children }: MainLayoutProps) {
       <Navbar onChange={onNavStateChange} />
       <div
         ref={mainRef}
-        className="container mx-auto box-border px-6 pt-16 md:px-10 lg:px-12 xl:px-0"
+        className="container mx-auto box-border px-6 pt-16 md:px-10 lg:px-12 xl:px-6 2xl:px-0"
       >
         {children}
       </div>
