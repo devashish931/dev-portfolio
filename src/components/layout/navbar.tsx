@@ -17,7 +17,7 @@ interface NavbarProps {
 
 const Navbar = ({ onChange }: NavbarProps) => {
   const [nav, setNav] = useState(false);
-  const { asPath } = useRouter();
+  const { pathname } = useRouter();
 
   const sidebarRef = useRef<HTMLDivElement | null>(null);
 
@@ -92,8 +92,8 @@ const Navbar = ({ onChange }: NavbarProps) => {
                     "flex h-8 items-center px-2! text-xs lg:text-sm",
                     "hover:text-accent",
                     {
-                      "text-accent!": asPath
-                        ? isActiveLink(href, asPath)
+                      "text-accent!": pathname
+                        ? isActiveLink(href, pathname)
                         : !idx,
                     },
                   )}

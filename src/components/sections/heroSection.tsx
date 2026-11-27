@@ -207,7 +207,7 @@ const HeroSection = (props: SectionProps) => {
           aria-hidden={true}
           onClick={scrollDown}
           className={cn(
-            "fixed bottom-4 left-[50%] hidden translate-x-[-50%] cursor-pointer transition-opacity duration-300 ease-in-out lg:block xl:absolute xl:-bottom-8",
+            "fixed bottom-4 left-[50%] z-50 hidden translate-x-[-50%] cursor-pointer transition-opacity duration-300 ease-in-out lg:block xl:absolute xl:-bottom-8",
             scrollIndicatorVisible ? "opacity-100" : "opacity-0",
           )}
         >

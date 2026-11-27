@@ -149,6 +149,18 @@
       color: --alpha(var(--accent) / 70%);
     }
   }
+
+  @keyframes mouse-ripple {
+    0% {
+      opacity: 0.8;
+      transform: translate(-50%, -50%) scale(0.5);
+    }
+
+    100% {
+      opacity: 0;
+      transform: translate(-50%, -50%) scale(15);
+    }
+  }
 }
 
 /* ========================================
@@ -178,6 +190,17 @@
   @apply max-w-7xl!;
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .mouse-ripple {
+    display: none;
+  }
+}
+
+.mouse-ripple {
+  @apply border-accent/30 pointer-events-none fixed z-50 hidden h-3 w-3 -translate-x-1/2 -translate-y-1/2 rounded-full border md:block;
+  animation: mouse-ripple 700ms ease-out forwards;
+}
+
 .bevel-clip {
   clip-path: polygon(
     20% 0%,
@@ -188,5 +211,64 @@
     20% 100%,
     0% 80%,
     0% 20%
+  );
+}
+
+.page-background {
+  @apply relative isolate min-h-screen;
+}
+
+.page-background::before,
+.page-background::after {
+  content: "";
+  @apply pointer-events-none fixed inset-0 -z-10;
+}
+
+/* Always-visible subtle grid */
+.page-background::before {
+  background-image:
+    linear-gradient(
+      to right,
+      --alpha(var(--primary) / 5%) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      to bottom,
+      --alpha(var(--primary) / 5%) 1px,
+      transparent 1px
+    );
+
+  background-size: 50px 50px;
+}
+
+/* Brighter grid underneath cursor */
+.page-background::after {
+  @apply content-none md:content-[""];
+  background-image:
+    radial-gradient(
+      circle 400px at var(--mouse-x, 50%) var(--mouse-y, 50%),
+      --alpha(var(--accent) / 25%),
+      transparent 100%
+    ),
+    linear-gradient(
+      to right,
+      --alpha(var(--primary) / 15%) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      to bottom,
+      --alpha(var(--primary) / 15%) 1px,
+      transparent 1px
+    );
+
+  background-size:
+    auto,
+    50px 50px,
+    50px 50px;
+
+  mask-image: radial-gradient(
+    circle 400px at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    black 0%,
+    transparent 100%
   );
 }

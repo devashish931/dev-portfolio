@@ -3,6 +3,7 @@ import "@/styles/globals.css";
 import { Space_Grotesk } from "next/font/google";
 import Head from "next/head";
 import MainLayout from "@/components/layout/MainLayout";
+import MouseCustom from "@/components/mouseCustom";
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
@@ -13,6 +14,7 @@ const spaceGrotesk = Space_Grotesk({
 const MyApp: AppType<{}> = ({ Component, pageProps }) => {
   return (
     <>
+      <MouseCustom />
       <main className={spaceGrotesk.className}>
         <Head>
           <meta name="description" content="portfolio" />

@@ -17,7 +17,7 @@ interface SidebarProps {
 
 const Sidebar = forwardRef<HTMLDivElement, SidebarProps>(
   ({ isOpen, onClose }, ref) => {
-    const { asPath } = useRouter();
+    const { pathname } = useRouter();
 
     const isActiveLink = (path: string, currentPath: string) => {
       if (path === ROUTES.HOME) {
@@ -81,14 +81,14 @@ const Sidebar = forwardRef<HTMLDivElement, SidebarProps>(
             <div className="flex flex-col py-4">
               <ul aria-label="Main Navigation">
                 {LINKS.map(({ name, href, options }) => {
-                  const active = isActiveLink(href, asPath);
+                  const active = isActiveLink(href, pathname);
 
                   return (
                     <li key={name}>
                       <NavLink
                         href={href}
                         className={cn(
-                          "flex items-center justify-between border-l-2 border-transparent py-4 pr-6 pl-[22px] text-lg font-semibold transition-colors duration-200",
+                          "flex items-center justify-between border-l-2 border-transparent py-4 pr-6 pl-5.5 text-lg font-semibold transition-colors duration-200",
                           active
                             ? "border-accent! text-accent"
                             : "text-primary-text hover:text-accent",
