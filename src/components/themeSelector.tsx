@@ -25,7 +25,6 @@ export function ThemeSelector({ className }: ThemeSelectorProps) {
     const theme = isValidTheme ? (savedTheme as ThemeName) : DEFAULT_THEME;
 
     setActiveTheme(theme);
-    document.documentElement.setAttribute("data-theme", theme);
   }, []);
 
   const selectTheme = (theme: ThemeName) => {

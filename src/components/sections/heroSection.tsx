@@ -75,7 +75,7 @@ const HeroSection = (props: SectionProps) => {
 
           <div className="space-y-3">
             <p className="text-accent font-mono text-sm tracking-wider">
-              HELLO, I'M
+              HELLO, I&apos;M
             </p>
 
             <h1 className="text-primary-text mb-1 text-4xl leading-[1.08] font-semibold tracking-tight break-words sm:text-6xl lg:text-7xl xl:text-8xl">
