@@ -60,7 +60,7 @@ export default function SkillsPage() {
                           width={28}
                           height={28}
                           alt=""
-                          className="mr-2 h-7 w-7"
+                          className="mr-2 w-7"
                         />
                         {skill.name}
                       </span>
