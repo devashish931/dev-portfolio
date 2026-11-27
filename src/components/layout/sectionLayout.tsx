@@ -25,4 +25,6 @@ const SectionLayout = forwardRef<HTMLElement, SectionLayoutProps>(
   },
 );
 
+SectionLayout.displayName = "SectionLayout";
+
 export default SectionLayout;

@@ -7,6 +7,9 @@ import Sidebar from "./sidebar";
 import { LINKS, ROUTES } from "@/config/appConfig";
 import { useRouter } from "next/router";
 import cn from "@/lib/utils";
+import { FiExternalLink } from "react-icons/fi";
+import { LuPalette } from "react-icons/lu";
+import { ThemeSelector } from "../themeSelector";
 
 interface NavbarProps {
   onChange: (isOpen: boolean) => void;
@@ -62,14 +65,14 @@ const Navbar = ({ onChange }: NavbarProps) => {
   };
 
   return (
-    <nav className="fixed left-0 top-0 z-[60] h-16 w-full bg-background/20 shadow-xl backdrop-blur-lg">
+    <nav className="bg-background/20 fixed top-0 left-0 z-60 h-16 w-full shadow-xl backdrop-blur-lg">
       <div className="w-full px-6 md:px-10 lg:px-12 xl:px-0">
         <div className="container mx-auto flex h-full w-full items-center justify-between py-3">
           <NavLink
             href={ROUTES.HOME}
             className="flex shrink-0 items-center text-xl"
           >
-            <span className="mr-2 flex h-10 w-10 items-center justify-center border-2 border-brand/80 p-1 text-lg font-extrabold uppercase text-brand">
+            <span className="border-brand/80 text-brand mr-2 flex h-10 w-10 items-center justify-center border-2 p-1 text-lg font-extrabold uppercase">
               DT
             </span>
 
@@ -83,13 +86,13 @@ const Navbar = ({ onChange }: NavbarProps) => {
               <li key={name}>
                 <Button
                   as="Link"
-                  variant={asButton ? "bordered-ghost-primary" : "ghost"}
+                  variant={"ghost"}
                   href={href}
-                  buttonClassName={cn(
-                    "flex h-8 items-center !px-2 text-xs lg:text-sm",
-                    asButton ? "ml-2" : "hover:text-yellow-300",
+                  className={cn(
+                    "flex h-8 items-center px-2! text-xs lg:text-sm",
+                    "hover:text-accent",
                     {
-                      "text-yellow-400": asPath
+                      "text-accent!": asPath
                         ? isActiveLink(href, asPath)
                         : !idx,
                     },
@@ -97,17 +100,32 @@ const Navbar = ({ onChange }: NavbarProps) => {
                   {...(options || {})}
                 >
                   {name}
-                  {Icon && <Icon className="ml-1.5 h-3 w-3" />}
                 </Button>
               </li>
             ))}
+            <li>
+              <ThemeSelector />
+            </li>
+            <li>
+              <Button
+                as="a"
+                href={SUBJECT_DATA.resume}
+                variant="bordered-accent"
+                disableHoverStyles
+                className="ml-2 flex h-8 items-center px-2! text-xs lg:text-sm"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Resume <FiExternalLink className="ml-1.5 h-3 w-3" />
+              </Button>
+            </li>
           </ul>
 
           <Button
             icon
             onClick={() => setNav(true)}
-            buttonClassName="bg-transparent !p-1.5 border-none"
-            className="cursor-pointer bg-transparent md:hidden"
+
+            className="cursor-pointer border-none bg-transparent p-1.5! md:hidden"
             aria-label="Open Navigation"
             aria-expanded={nav}
           >

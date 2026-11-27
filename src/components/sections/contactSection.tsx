@@ -15,10 +15,10 @@ export default function ContactSection({
       className={cn("container mx-auto", className)}
       {...restProps}
     >
-      <div className="grid items-center gap-10 border border-primary/70 bg-primary/10 px-7 py-12 sm:px-12 sm:py-16 md:grid-cols-2 md:gap-16 lg:px-16">
+      <div className="border-primary/70 bg-primary/10 grid items-center gap-10 border px-7 py-12 sm:px-12 sm:py-16 md:grid-cols-2 md:gap-16 lg:px-16">
         {/* Content */}
         <div>
-          <h2 className="text-4xl font-bold leading-[1.12] tracking-tight text-white sm:text-5xl">
+          <h2 className="text-4xl leading-[1.12] font-bold tracking-tight text-white sm:text-5xl">
             Let&apos;s build something together.
           </h2>
 
@@ -34,8 +34,7 @@ export default function ContactSection({
             href={ROUTES.CONTACT}
             variant="solid-accent"
             size="lg"
-            className="w-full"
-            buttonClassName="min-h-[60px] w-full font-semibold"
+            className="min-h-15 w-full font-semibold"
           >
             Get in touch
           </Button>
@@ -45,8 +44,7 @@ export default function ContactSection({
             href={`mailto:${SUBJECT_DATA.contact.email}`}
             variant="bordered-primary"
             size="lg"
-            className="w-full"
-            buttonClassName="min-h-[64px] w-full font-semibold"
+            className="min-h-15 w-full font-semibold"
           >
             {SUBJECT_DATA.contact.email}
           </Button>

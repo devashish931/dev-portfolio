@@ -24,14 +24,14 @@ const Footer = () => {
   };
 
   return (
-    <footer className="w-full border-t border-brand/20 px-6 md:px-10 lg:px-12 xl:px-0">
+    <footer className="border-brand/20 w-full border-t px-6 md:px-10 lg:px-12 xl:px-0">
       <div className="container mx-auto flex flex-col gap-5 py-6 sm:flex-row sm:items-center sm:justify-between sm:gap-4 sm:py-7">
         <div className="flex flex-col gap-1">
-          <p className="text-sm font-medium text-primary-text/80">
+          <p className="text-primary-text/80 text-sm font-medium">
             {firstName} {lastName}, Frontend Developer
           </p>
 
-          <p className="text-xs text-primary-text/70">
+          <p className="text-primary-text/70 text-xs">
             &copy; {new Date().getFullYear()} All rights reserved.
           </p>
         </div>
@@ -43,7 +43,7 @@ const Footer = () => {
                 <NavLink
                   href={getHref(href)}
                   className={cn(
-                    "inline-flex min-h-9 items-center text-xs text-primary-text/70 transition-colors duration-200 hover:text-accent",
+                    "text-primary-text/70 hover:text-accent inline-flex min-h-9 items-center text-xs transition-colors duration-200",
                   )}
                   {...(options || {})}
                 >

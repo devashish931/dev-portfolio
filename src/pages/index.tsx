@@ -4,10 +4,7 @@ import ExperienceSection from "@/components/sections/experienceSection";
 import HeroSection from "@/components/sections/heroSection";
 import ProjectSection from "@/components/sections/projectSection";
 import SkillSection from "@/components/sections/skillSection";
-import StatsSection from "@/components/sections/statsSection";
 import SEO from "@/components/seo";
-import { SUBJECT_DATA } from "@/config/constants/common";
-import Head from "next/head";
 
 export default function App() {
   return (

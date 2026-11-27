@@ -8,20 +8,20 @@ React.js, Next.js, TypeScript, JavaScript, frontend architecture, performance op
 
 ## Projects
 
-- [WPT Play](https://devtrehan.in/projects/wpt-play): A poker platform providing players with an online gaming experience.
-- [World Poker Tour](https://devtrehan.in/projects/wpt): The official website of the World Poker Tour.
-- [College Disha](https://devtrehan.in/projects/college-disha): An education platform offering career and college guidance.
-- [Sosh Nft](https://devtrehan.in/projects/sosh-nft): An NFT-focused digital platform.
-- [Casino Lobby](https://devtrehan.in/projects/casino-lobby): A configurable casino lobby displaying games, banners, and dynamic content.
-- [Casino CMS](https://devtrehan.in/projects/casino-cms): A CMS for managing casino content, games, banners, game-banners etc. and Plugin to generate lobbies
-- [WPT Global](https://devtrehan.in/projects/wpt-global): The official user-facing web platform of WPT Global.
-- [WPTG CMS](https://devtrehan.in/projects/wptg-cms): A customized Strapi CMS for managing WPT Global website content.
-- [WPTG Promo](https://devtrehan.in/projects/wptg-promo): A promotional platform for presenting WPT Global campaigns and offers.
-- [WPT CMS](https://devtrehan.in/projects/wpt-cms): A customized Strapi CMS for managing World Poker Tour website content.
-- [My Portfolio](https://devtrehan.in/projects/dev-portfolio): A personal portfolio showcasing my frontend development experience and projects.
-- [Distinct](https://devtrehan.in/projects/distinct): A live data intelligence platform that captures and analyzes customer interactions at events.
-- [GamaVrs](https://devtrehan.in/projects/gamavrs): An administration dashboard for managing a game avatar marketplace.
-- [Moments NFT](https://devtrehan.in/projects/moment-nft): An NFT auction platform for digital collectibles.
+- [WPT Play](https://devtrehan.in/projects/wpt-play): Built a shared authentication module and cross-application communication layer to connect multiple micro-frontends.
+- [World Poker Tour](https://devtrehan.in/projects/wpt): Led the migration to Next.js, developed reusable page structures, integrated Strapi content, and improved loading performance.
+- [College Disha](https://devtrehan.in/projects/college-disha): Migrated a legacy PHP frontend to Next.js, defining its architecture and rendering strategy while improving performance by around 25%.
+- [Sosh Nft](https://devtrehan.in/projects/sosh-nft): Improved the existing application's UI and UX, completed key frontend features, and integrated backend APIs and blockchain services.
+- [Casino Lobby](https://devtrehan.in/projects/casino-lobby): Developed a widget-based lobby architecture, integrated embedded application communication, and optimized API data handling.
+- [Casino CMS](https://devtrehan.in/projects/casino-cms): Built a drag-and-drop lobby builder with collection editing, localization workflows, bulk operations, and role-based access control.
+- [WPT Global](https://devtrehan.in/projects/wpt-global): Built reusable frontend components, integrated analytics, and developed an internal tool to validate translation files.
+- [WPTG CMS](https://devtrehan.in/projects/wptg-cms): Extended Strapi with custom content collections, locale duplication plugins, and application-specific API logic and validation.
+- [WPTG Promo](https://devtrehan.in/projects/wptg-promo): Developed a reusable widget-based page architecture and migrated the application from Vue.js to Next.js.
+- [WPT CMS](https://devtrehan.in/projects/wpt-cms): Customized Strapi content models and integrated CMS data with the frontend to support website content requirements.
+- [My Portfolio](https://devtrehan.in/projects/dev-portfolio): Designed and developed my portfolio with reusable components, responsive layouts, and structured project and experience data.
+- [Distinct](https://devtrehan.in/projects/distinct): Developed and maintained the marketing website, translating designs into responsive layouts and interactive frontend components.
+- [GamaVrs](https://devtrehan.in/projects/gamavrs): Developed admin workflows for avatar management, user administration, CMS features, role-based access, and dashboard forms.
+- [Moments NFT](https://devtrehan.in/projects/moment-nft): Developed core NFT auction workflows, reusable UI components, responsive layouts, and backend API integrations.
 
 ## Links
 

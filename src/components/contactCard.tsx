@@ -18,14 +18,14 @@ export function ContactCard({
       href={href}
       target={external ? "_blank" : undefined}
       rel={external ? "noopener noreferrer" : undefined}
-      className="flex items-center gap-4 border border-brand/40 bg-brand/15 p-5 transition-colors hover:border-accent/60"
+      className="border-brand/40 bg-brand/15 hover:border-accent/60 flex items-center gap-4 border p-5 transition-colors"
     >
-      <span className="shrink-0 text-xl text-accent">{icon}</span>
+      <span className="text-accent shrink-0 text-xl">{icon}</span>
 
       <span className="min-w-0">
-        <span className="block text-sm text-primary-text/70">{label}</span>
+        <span className="text-primary-text/70 block text-sm">{label}</span>
 
-        <span className="block break-all font-semibold text-white">
+        <span className="block font-semibold break-all text-white">
           {value}
         </span>
       </span>

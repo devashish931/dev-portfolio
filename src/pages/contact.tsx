@@ -2,7 +2,8 @@ import { Form, Formik } from "formik";
 import * as Yup from "yup";
 import React from "react";
 
-import { toast } from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { FiMail, FiPhone, FiLinkedin, FiGithub } from "react-icons/fi";
 import { FaSpinner } from "react-icons/fa";
 
@@ -72,7 +73,7 @@ export default function Contact() {
           </div>
 
           {/* Contact form */}
-          <div className="border border-primary/80 bg-gradient-to-br from-primary/5 to-primary/15 p-6 sm:p-8">
+          <div className="border-primary/80 from-primary/5 to-primary/15 border bg-linear-to-br p-6 sm:p-8">
             <Formik
               initialValues={initialValues}
               validationSchema={validationSchema}
@@ -121,8 +122,7 @@ export default function Contact() {
                     type="submit"
                     disabled={isSubmitting}
                     variant="solid-accent"
-                    className="w-full"
-                    buttonClassName="min-h-12 w-full justify-center font-semibold"
+                    className="min-h-12 w-full justify-center font-semibold"
                   >
                     {isSubmitting ? (
                       <>
@@ -134,7 +134,7 @@ export default function Contact() {
                     )}
                   </Button>
 
-                  <p className="text-sm text-primary-text/70">
+                  <p className="text-primary-text/70 text-sm">
                     I usually reply within a day.
                   </p>
                 </Form>
@@ -143,6 +143,7 @@ export default function Contact() {
           </div>
         </div>
       </PageLayout>
+      <ToastContainer toastClassName="bg-elevated! text-primary-text! border border-brand/80" />
     </>
   );
 }
