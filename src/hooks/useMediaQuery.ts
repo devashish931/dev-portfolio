@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useSyncExternalStore } from "react";
 
 const screens = {
   sm: 640,
@@ -10,19 +10,29 @@ const screens = {
 
 type Screen = keyof typeof screens;
 
-export function useMediaQuery(screen: Screen): boolean {
-  const query = `(min-width: ${screens[screen]}px)`;
-  const [matches, setMatches] = useState(false);
+export function useMediaQuery(min?: Screen, max?: Screen): boolean {
+  const query = [
+    min && `(min-width: ${screens[min]}px)`,
+    max && `(max-width: ${screens[max] - 1}px)`,
+  ]
+    .filter(Boolean)
+    .join(" and ");
 
-  useEffect(() => {
-    if (typeof window === "undefined") return;
+  const subscribe = useCallback(
+    (callback: () => void) => {
+      const mql = window.matchMedia(query);
+      mql.addEventListener("change", callback);
+      return () => mql.removeEventListener("change", callback);
+    },
+    [query],
+  );
 
-    const mql = window.matchMedia(query);
-    const update = () => setMatches(mql.matches);
-    update();
-    mql.addEventListener("change", update);
-    return () => mql.removeEventListener("change", update);
-  }, [query]);
+  const getSnapshot = useCallback(
+    () => window.matchMedia(query).matches,
+    [query],
+  );
 
-  return matches;
+  const getServerSnapshot = useCallback(() => false, []);
+
+  return useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
 }

@@ -1,12 +1,15 @@
 "use client";
 
+import { useMediaQuery } from "@/hooks/useMediaQuery";
 import { useEffect } from "react";
 
 export default function MouseCustom() {
+  const isMobile = useMediaQuery(undefined, "md");
+
   useEffect(() => {
     const container = document.querySelector(".page-background") as HTMLElement;
 
-    if (!container) return;
+    if (!container || isMobile) return;
 
     const handleMouseMove = (event: MouseEvent) => {
       container.style.setProperty("--mouse-x", `${event.clientX}px`);
@@ -37,7 +40,7 @@ export default function MouseCustom() {
       window.removeEventListener("mousemove", handleMouseMove);
       window.removeEventListener("click", handleClick);
     };
-  }, []);
+  }, [isMobile]);
 
   return null;
 }
